@@ -1,0 +1,54 @@
+
+{% extends "first_app/first_page.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block center_right %}
+<div id="content">
+<div class="box-index" style="line-height: 28px;">
+
+<form method="post">
+    {% csrf_token %}
+{#<p style="height: 60px">   </p>#}
+        <div class="login-container text-c animated flipInX">
+                <div>
+                    <h1 class="logo-badge text-whitesmoke" style="color: black;"><span class="mdi mdi-account-circle"></span></h1>
+                </div>
+                    <h3 class="text-whitesmoke"> ثبت نام در سایت من</h3>
+                    <p class="text-whitesmoke">ایجاد یک حساب کاربری</p>
+                <div class="container-content">
+                    <form class="margin-t">
+                        <div class="form-group" style="padding-left: 60px">
+                            <label>شناسه کاربری</label>
+                            <input type="text" name="username" maxlength="150" autofocus="" required="" id="id_username">
+                        </div>
+                        <div class="form-group" style="padding-left: 25px">
+                            <label>ایمیل</label>
+                            <input type="email" name="email" required="" id="id_email">
+                        </div>
+                        <div class="form-group" style="padding-left: 35px">
+                            <label>رمز عبور</label>
+                            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" aria-autocomplete="list">
+                        </div>
+                        <div class="form-group" style="padding-left: 60px">
+                            <label>تکرار رمز عبور</label>
+                            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+                        </div>
+                        <p>   </p>
+                        <button type="submit" class="form-button button-l margin-b">ثبت نام کن</button>
+
+
+                        <p class="text-whitesmoke text-center"><small>آیا حساب کاربری دارید ؟</small></p>
+                        <a class="text-darkyellow" style="text-decoration: none" href="{% url 'login' %}"><small>ورود</small></a>
+                    </form>
+                    <p class="margin-t text-whitesmoke"><small> سایت من &copy; 1400</small> </p>
+                </div>
+            </div>
+
+</form>
+
+</div>
+</div>
+
+{% endblock center_right %}
+

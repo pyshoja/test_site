@@ -1,0 +1,45 @@
+
+{% extends "first_app/first_page.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block center_right %}
+  <div id="content">
+<div class="box-index" style="line-height: 28px;">
+
+<form method="post">
+    {% csrf_token %}
+{#<p style="height: 60px">   </p>#}
+
+        <div class="login-container text-c animated flipInX">
+                <div>
+                    <h1 class="logo-badge text-whitesmoke" style="color: black;"><span class="mdi mdi-account-circle"></span></h1>
+                </div>
+                    <h3 class="text-whitesmoke"> ورود به سایت من</h3>
+                    <p class="text-whitesmoke">ورود به حساب کاربری</p>
+                <div class="container-content">
+                    <form class="margin-t">
+                        <div class="form-group" style="padding-left: 25px">
+                            <label>شناسه کاربری</label>
+                            <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username" style="width: 180px">
+                        </div>
+                        <div class="form-group" style="padding-left: 0px">
+                            <label>رمز عبور</label>
+                            <input type="password" name="password" autocomplete="current-password" required="" id="id_password" style="width: 180px">
+                        </div>
+                        <p>   </p>
+                        <button type="submit" class="form-button button-l margin-b">وارد میشوم</button>
+
+                        <a class="text-darkyellow" style="text-decoration: none" href="#"><small>فراموشی رمز عبور ؟</small></a>
+                        <p class="text-whitesmoke text-center"><small>آیا حساب کاربری دارید ؟</small></p>
+                        <a class="text-darkyellow" style="text-decoration: none" href="{% url 'register' %}"><small>ثبت نام</small></a>
+                    </form>
+                    <p class="margin-t text-whitesmoke"><small> سایت من &copy; 1400</small> </p>
+                </div>
+            </div>
+
+</form>
+
+    </div>
+</div>
+{% endblock center_right %}
