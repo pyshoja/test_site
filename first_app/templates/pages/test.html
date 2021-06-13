@@ -1,0 +1,126 @@
+{% extends 'first_app/1_index.html' %}
+{% load static %}
+
+{% block center %}
+
+<div style="text-align: center ; background-color: #ffcd39 ; width: 500px">
+<h2>حساب کاربری</h2>
+<p>برای ورود یا ایجاد حساب کاربری کلیک کنید:</p>
+
+<div class="tab" style="background-color: #b02a37">
+  <button class="tablinks" onclick="openCity(event, 'London')">ورود</button>
+  <button class="tablinks" onclick="openCity(event, 'Paris')">ثبت نام</button>
+  <button class="tablinks" onclick="openCity(event, 'Tokyo')">حذف حساب</button>
+</div>
+
+<div id="London" class="tabcontent" style="background-color: #198754">
+  <h3>ورود به حساب کاربری</h3>
+
+    <form action="test.html" method="post" id="login">
+        <ul style="list-style: none">
+            <li>
+                <label>شناسه کاربری</label>
+                <input type="text" class="text" name="log" id="nd_username" placeholder="شناسه کاربری">
+            </li>
+            <li>
+                <label>رمز عبور</label>
+                <input type="password" class="password" name="log" id="nd_password" placeholder="رمز عبور">
+            </li>
+            <li style="width: 100px">
+                <button><a href="{% url 'login' %}" style="text-decoration: none">وارد میشوم</a></button>
+            </li>
+        </ul>
+    </form>
+</div>
+
+<div id="Paris" class="tabcontent">
+  <h3>ثبت نام یک حساب کاربری</h3>
+
+    <form action="test.html" method="post" id="singup">
+        <ul style="list-style: none">
+            <li>
+                <label>شناسه کاربری</label>
+                <input type="text" class="text" name="log" id="nd_username" placeholder="شناسه کاربری">
+            </li>
+            <li>
+                <label>ایمیل</label>
+                <input type="email" class="email" name="log" id="nd_email" placeholder="ایمیل">
+            </li>
+            <li>
+                <label>رمز عبور</label>
+                <input type="password1" class="password1" name="log" id="nd_password1" placeholder="رمز عبور">
+            </li>
+            <li>
+                <label>تکرار رمز عبور</label>
+                <input type="password2" class="password2" name="log" id="nd_password2" placeholder="تکرار رمز عبور">
+            </li>
+            <li style="width: 100px">
+                <button><a href="{% url 'register' %}" style="text-decoration: none">ثبت نام کن</a></button>
+            </li>
+        </ul>
+    </form>
+</div>
+
+<div id="Tokyo" class="tabcontent">
+  <h3>حذف حساب</h3>
+  <p>برای حذف حساب کاربری مشخصات زیر را تکمیل کنید</p>
+</div>
+
+</div>
+
+
+
+
+
+<ul class="nd_tabs">
+<li class=""><a href="#nd_register_form">ثبت نام در متمم</a></li>
+<li class="active"><a href="#nd_login_form">ورود برای اعضای متمم</a></li>
+</ul>
+    ﻿<form action="{% url 'login' %}" method="post" class="nd_form" id="nd_login_form" style="">
+    {% csrf_token %}
+    <div class="nd_form_inner">
+        <p><label for="nd_username">شناسه کاربری:</label>
+            <input type="text" class="text" name="log" id="nd_username" placeholder="شناسه کاربری{{ form.username }}"></p>
+        <p><label for="nd_password">پسورد:</label>
+            <input type="password" class="text" name="pwd" id="nd_password" placeholder="پسورد{{ form.password }}"></p>
+        <a class="forgotten" style="text-decoration: none" href="#nd_lost_password_form">رمز عبورم را فراموش کرده ام</a>
+        <input type="submit" class="button" style="background-color:#009933 !important; color:#FFFFFF !important;" value="ورود">
+        <input name="nd_login" type="hidden" value="true">
+        <input name="rememberme" type="hidden" id="rememberme" value="forever">
+        <input name="redirect_to" type="hidden" id="redirect_to" value="https://motamem.org/">
+    </div></form>
+
+    ﻿<form action="{% url 'register' %}" method="post" class="nd_form" autocomplete="off" id="nd_register_form" style="display:none">
+    {% csrf_token %}
+    <div class="nd_form_inner">
+        <p> <label>نام و نام خانوادگی<br>
+            <input type="text" name="upme[first_name]" id="upme[first_name]" class="input" value="" placeholder="نام و نام خانوادگی{{ form.username }}"></label> </p>
+        <p><label for="nd_reg_username">شناسه کاربری:</label>
+            <input type="text" class="text" name="username" id="nd_reg_username" placeholder="شناسه کاربری{{ form.username }}"></p>
+        <p><label for="nd_reg_email">ایمیل:</label>
+            <input type="text" class="text" name="email" id="nd_reg_email" placeholder="ایمیل را بدون www.وارد کنید{{ form.email }}"></p>
+        <p><label for="nd_reg_password">پسورد:</label>
+            <input type="password" class="text" name="password" id="nd_reg_password" placeholder="پسورد{{ form.password }}">
+            <input type="password" class="text" name="password2" id="nd_reg_password_2" placeholder="تکرار پسورد{{ form.password }}"></p>
+        <p><label for="nd_reg_captcha"> لطفا معادله زیر را تکمیل نمایید:</label> </p>
+        <p><input type="hidden" name="cntctfrm_contact_action" value="true">
+            <input type="hidden" name="cptch_result" value="wmw=">
+            <input type="hidden" name="cptch_time" value="1621872392">
+            <input type="hidden" value="Version: 2.4">
+            <input type="text" autocomplete="off" name="cptch_number" value="" maxlength="1" size="1" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;"> + شش = 13</p>
+        <label for="nd_reg_human">
+            <input type="checkbox" name="human" id="nd_reg_human">لطفا اینجا را تیک بزنید</label>
+        <input type="submit" class="button" value="ثبت نام →">
+        <input name="nd_register" type="hidden" value="true">
+    </div></form>
+
+    ﻿<form action="#" method="post" class="nd_form" autocomplete="off" id="nd_lost_password_form" style="display:none">
+    <div class="nd_form_inner">
+        <p>شناسه کاربری یا ایمیل خود را وارد نمایید.در صورت صحیح بودن، پسورد جدید به ایمیلتان ارسال خواهد شد</p>
+        <p><label for="nd_lost_username">شناسه کاربری یا ایمیل:</label>
+            <input type="text" class="text" name="username_or_email" id="nd_lost_username" placeholder="شناسه کاربری و یا ایمیل"></p>
+        <p><input type="submit" class="button" value="بازیابی پسورد →">
+            <input name="nd_lostpass" type="hidden" value="true"></p>
+    </div></form>
+
+{% endblock center %}
