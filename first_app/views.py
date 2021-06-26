@@ -30,7 +30,7 @@ class description (LoginRequiredMixin , DetailView):
 
 
 
-class filter (LoginRequiredMixin, ListView):
+class filter (ListView):
     template_name = 'pages/filter_description.html'
     model = Post
 
@@ -65,7 +65,7 @@ class firstpageview (ListView):
         return context
 
 
-class aboutview (LoginRequiredMixin , TemplateView):
+class aboutview (TemplateView):
     template_name = 'pages/about.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
