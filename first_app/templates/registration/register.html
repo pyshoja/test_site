@@ -37,6 +37,11 @@
                         <p>   </p>
                         <button type="submit" class="form-button button-l margin-b">ثبت نام کن</button>
 
+                                {% if form.errors %}
+                                <p style="color: red;text-align: center">
+                                    ایجاد خطا در ثبت نام شما ، لطفا دوباره تلاش کنید.
+                                </p>
+                                {% endif %}
 
                         <p class="text-whitesmoke text-center"><small>آیا حساب کاربری دارید ؟</small></p>
                         <a class="text-darkyellow" style="text-decoration: none" href="{% url 'login' %}"><small>ورود</small></a>
