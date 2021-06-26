@@ -16,6 +16,13 @@
                 </div>
                     <h3 class="text-whitesmoke"> ثبت نام در سایت من</h3>
                     <p class="text-whitesmoke">ایجاد یک حساب کاربری</p>
+
+                                {% if form.errors %}
+                                    <p style="color: red;text-align: center">
+                                        هشدار : ثبت نام شما بخاطر یکی از دلایل ذیل رد شده است ، دوباره تلاش کنید.
+                                    </p>
+                                {% endif %}
+
                 <div class="container-content">
                     <form class="margin-t">
                         <div class="form-group" style="padding-left: 60px">
