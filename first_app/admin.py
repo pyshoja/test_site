@@ -6,7 +6,7 @@ from .models import My , Slider , Category , Post
 
 
 class postadmin (admin.ModelAdmin):
-    list_display = ('id','title','parent','date','status')
+    list_display = ('id','title','parent','author','date','status')
 admin.site.register(Post , postadmin)
 
 

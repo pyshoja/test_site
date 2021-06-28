@@ -3,6 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import TemplateView , DetailView , ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
@@ -11,6 +12,27 @@ from django.conf import settings
 from .forms import registerForm
 from django.contrib.auth.views import LoginView
 from .models import My , Slider , Category , Post
+
+
+
+class filter_author (ListView):
+    template_name = 'pages/filter_description.html'
+    model = Post
+
+    def get_queryset(self, **kwargs):
+        query = super().get_queryset(**kwargs)
+        auth_id = self.kwargs.get('author_id')
+        query = query.filter(author__id=auth_id)
+        return query
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['my'] = My.objects.all()
+        context['menusite'] = Category.objects.all()
+        context['footer'] = My.objects.all()
+        context['slider'] = Slider.objects.all()
+        context['post'] = Post.objects.all()
+        return context
 
 
 class description (LoginRequiredMixin , DetailView):
@@ -29,8 +51,7 @@ class description (LoginRequiredMixin , DetailView):
         return context
 
 
-
-class filter (ListView):
+class filter_category (ListView):
     template_name = 'pages/filter_description.html'
     model = Post
 
@@ -115,8 +136,3 @@ class loginview (LoginView):
         context['post'] = Post.objects.all()
         return context
 
-
-
-
-class testview (TemplateView):
-    template_name = 'pages/test.html'
