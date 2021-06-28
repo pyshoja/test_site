@@ -1,0 +1,401 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="rtl" lang="fa-IR">
+
+{#شروع head سایت برای css , js#}
+<head>
+<title>سایت من</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Language" content="fa">
+<meta name="theme-color" content="#009933">
+<link rel="stylesheet" type="text/css" href="{% static 'first_app/css/5r0jp.css'%}" media="screen, projection">
+        <link rel="stylesheet" type="text/css" href="{% static 'first_app/css/bootstrap.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'first_app/css/style.css'%}">
+{#        <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">#}
+        <link rel="stylesheet" href="{% static 'mdi/css/materialdesignicons.min.css' %}">
+
+        <script src="{% static 'first_app/js/jquery-3.6.0.min.js'%}"></script>
+    <style>
+        @font-face {
+            font-family: 'iransans';
+            src: local('iransans');
+            url('{% static "first_app/fonts/eot/IRANSansWeb.eot" %}') fotmat('eot')
+            url('{% static "first_app/fonts/ttf/IRANSansWeb.ttf" %}') fotmat('ttf')
+            url('{% static "first_app/fonts/woff/IRANSansWeb.woff" %}') fotmat('woff')
+            url('{% static "first_app/fonts/woff2/IRANSansWeb.woff2" %}') fotmat('woff2')
+        }
+    </style>
+<!--[if lt IE 8]><link rel="stylesheet" href="https://motamem.org/wp-content/themes/UpStream/lib/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
+<link rel="stylesheet" type="text/css" href="{% static 'first_app/css/5r0i9.css'%}" media="screen"><style>.wpulike .counter a.image{background-image:url(https://motamem.org/wp-content/uploads/2015/05/icon-like-comment.png) !important;}
+.wpulike .counter a{background-color:#076b05 !important;border-color:#c8c8c8 !important;color:#ffffff !important;}</style><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<link rel="preload prefetch" href="https://motamem.org/wp-content/themes/UpStream/lib/fonts/woff2/IRANSansWeb.woff2" type="font/woff2" as="font" crossorigin="">
+<title>متمم - محل توسعه مهارتهای من</title>
+<meta name="description" content="متمم محل توسعه مهارتهای من است. این سایت برای آموزش مهارتی و مدیریتی و دوره MBA‌ آنلاین و آموزش آنلاین مدیریت در حوزه های مذاکره و برند و استراتژی و سایر زمینه های مرتبط طراحی شده است.">
+<link rel="canonical" href="https://motamem.org/">
+<link rel="next" href="https://motamem.org/page/2/">
+<meta property="og:locale" content="fa_IR">
+<meta property="og:type" content="website">
+<meta property="og:title" content="متمم - محل توسعه مهارتهای من">
+<meta property="og:description" content="متمم محل توسعه مهارتهای من است. این سایت برای آموزش مهارتی و مدیریتی و دوره MBA‌ آنلاین و آموزش آنلاین مدیریت در حوزه های مذاکره و برند و استراتژی و سایر زمینه های مرتبط طراحی شده است.">
+<meta property="og:url" content="https://motamem.org/">
+<meta property="og:site_name" content="متمم">
+<script type="text/javascript" async="" src="https://www.google-analytics.com/plugins/ua/linkid.js"></script><script async="" src="//www.google-analytics.com/analytics.js"></script><script type="application/ld+json" class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebSite","@id":"https://motamem.org/#website","url":"https://motamem.org/","name":"\u0645\u062a\u0645\u0645","description":"\u0645\u062d\u0644 \u062a\u0648\u0633\u0639\u0647 \u0645\u0647\u0627\u0631\u062a\u0647\u0627\u06cc \u0645\u0646","potentialAction":[{"@type":"SearchAction","target":"https://motamem.org/?s={search_term_string}","query-input":"required name=search_term_string"}],"inLanguage":"fa-IR"},{"@type":"CollectionPage","@id":"https://motamem.org/#webpage","url":"https://motamem.org/","name":"\u0645\u062a\u0645\u0645 - \u0645\u062d\u0644 \u062a\u0648\u0633\u0639\u0647 \u0645\u0647\u0627\u0631\u062a\u0647\u0627\u06cc \u0645\u0646","isPartOf":{"@id":"https://motamem.org/#website"},"description":"\u0645\u062a\u0645\u0645 \u0645\u062d\u0644 \u062a\u0648\u0633\u0639\u0647 \u0645\u0647\u0627\u0631\u062a\u0647\u0627\u06cc \u0645\u0646 \u0627\u0633\u062a. \u0627\u06cc\u0646 \u0633\u0627\u06cc\u062a \u0628\u0631\u0627\u06cc \u0622\u0645\u0648\u0632\u0634 \u0645\u0647\u0627\u0631\u062a\u06cc \u0648 \u0645\u062f\u06cc\u0631\u06cc\u062a\u06cc \u0648 \u062f\u0648\u0631\u0647 MBA\u200c \u0622\u0646\u0644\u0627\u06cc\u0646 \u0648 \u0622\u0645\u0648\u0632\u0634 \u0622\u0646\u0644\u0627\u06cc\u0646 \u0645\u062f\u06cc\u0631\u06cc\u062a \u062f\u0631 \u062d\u0648\u0632\u0647 \u0647\u0627\u06cc \u0645\u0630\u0627\u06a9\u0631\u0647 \u0648 \u0628\u0631\u0646\u062f \u0648 \u0627\u0633\u062a\u0631\u0627\u062a\u0698\u06cc \u0648 \u0633\u0627\u06cc\u0631 \u0632\u0645\u06cc\u0646\u0647 \u0647\u0627\u06cc \u0645\u0631\u062a\u0628\u0637 \u0637\u0631\u0627\u062d\u06cc \u0634\u062f\u0647 \u0627\u0633\u062a.","breadcrumb":{"@id":"https://motamem.org/#breadcrumb"},"inLanguage":"fa-IR","potentialAction":[{"@type":"ReadAction","target":["https://motamem.org/"]}]},{"@type":"BreadcrumbList","@id":"https://motamem.org/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://motamem.org/#webpage"}}]}]}</script>
+<script data-cfasync="false">var disableStr='ga-disable-UA-63038199-1';
+function __gaTrackerIsOptedOut(){
+return document.cookie.indexOf(disableStr + '=true') > -1;
+}
+if(__gaTrackerIsOptedOut()){
+window[disableStr]=true;
+}
+function __gaTrackerOptout(){
+document.cookie=disableStr + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+window[disableStr]=true;
+}
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','__gaTracker');
+__gaTracker('create', 'UA-63038199-1', 'auto');
+__gaTracker('set', 'forceSSL', true);
+__gaTracker('require', 'displayfeatures');
+__gaTracker('require', 'linkid', 'linkid.js');
+__gaTracker('send','pageview');</script>
+<link rel="stylesheet" type="text/css" href="{% static 'first_app/css/5r0jo.css'%}" media="all">
+<link rel="https://api.w.org/" href="https://motamem.org/wp-json/"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://motamem.org/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://motamem.org/wp-includes/wlwmanifest.xml">
+<meta name="generator" content="Easy Digital Downloads v2.2.2">
+<style id="ubermenu-custom-generated-css">.fa{font-style:normal;font-variant:normal;font-weight:normal;font-family:FontAwesome;}
+.ubermenu-main{background-color:#009933;background:-webkit-gradient(linear,left top,left bottom,from(#009933),to(#009933));background:-webkit-linear-gradient(top,#009933,#009933);background:-moz-linear-gradient(top,#009933,#009933);background:-ms-linear-gradient(top,#009933,#009933);background:-o-linear-gradient(top,#009933,#009933);background:linear-gradient(top,#009933,#009933);border:1px solid #009933;}
+.ubermenu-main .ubermenu-nav .ubermenu-item.ubermenu-item-level-0 > .ubermenu-target{font-weight:normal;}
+.ubermenu-main .ubermenu-item-level-0 > .ubermenu-target{color:#ffffff;}
+.ubermenu.ubermenu-main .ubermenu-item-level-0:hover > .ubermenu-target, .ubermenu-main .ubermenu-item-level-0.ubermenu-active > .ubermenu-target{color:#ffffff;}
+.ubermenu-main .ubermenu-item-level-0.ubermenu-current-menu-item > .ubermenu-target, .ubermenu-main .ubermenu-item-level-0.ubermenu-current-menu-parent > .ubermenu-target, .ubermenu-main .ubermenu-item-level-0.ubermenu-current-menu-ancestor > .ubermenu-target{color:#ffffff;}
+.ubermenu-main .ubermenu-item.ubermenu-item-level-0 > .ubermenu-highlight{color:#ffffff;}
+.ubermenu-main .ubermenu-submenu .ubermenu-item-header > .ubermenu-target{color:#1a5914;}
+.ubermenu-main .ubermenu-submenu .ubermenu-item-header > .ubermenu-target:hover{color:#1a5914;}
+.ubermenu-main .ubermenu-submenu .ubermenu-item-header.ubermenu-current-menu-item > .ubermenu-target{color:#1a5914;}
+.ubermenu-main .ubermenu-nav .ubermenu-submenu .ubermenu-item-header > .ubermenu-target{font-weight:normal;}
+.ubermenu-main .ubermenu-item-normal > .ubermenu-target{color:#000000;font-size:13px;}
+.ubermenu.ubermenu-main .ubermenu-item-normal > .ubermenu-target:hover, .ubermenu.ubermenu-main .ubermenu-item-normal.ubermenu-active > .ubermenu-target{color:#af230e;}
+.ubermenu-main .ubermenu-item-normal.ubermenu-current-menu-item > .ubermenu-target{color:#000000;}
+.ubermenu-main, .ubermenu-main .ubermenu-target, .ubermenu-main .ubermenu-nav .ubermenu-item-level-0 .ubermenu-target{font:13px;}
+.ubermenu .ubermenu-item.ubermenu-item-8648 > .ubermenu-target{color:#000000;}
+.ubermenu .ubermenu-item.ubermenu-item-8648.ubermenu-active > .ubermenu-target, .ubermenu .ubermenu-item.ubermenu-item-8648:hover > .ubermenu-target, .ubermenu .ubermenu-submenu .ubermenu-item.ubermenu-item-8648.ubermenu-active > .ubermenu-target, .ubermenu .ubermenu-submenu .ubermenu-item.ubermenu-item-8648:hover > .ubermenu-target{color:#af230e;}
+.ubermenu .ubermenu-item.ubermenu-item-8648.ubermenu-current-menu-item > .ubermenu-target,.ubermenu .ubermenu-item.ubermenu-item-8648.ubermenu-current-menu-ancestor > .ubermenu-target{color:#af230e;}
+.ubermenu.ubermenu-sticky, .ubermenu-responsive-toggle.ubermenu-sticky{z-index:1000;}.ubermenu-sticky.ubermenu-sticky-full-width{left:0;width:100%;max-width:100%;}
+.ubermenu-sticky-full-width.ubermenu-sticky .ubermenu-nav{padding-left:1px;}
+@media screen and (max-width: 959px){
+.ubermenu-responsive-toggle.ubermenu-sticky{height:43px;left:0;width:100% !important;}
+.ubermenu.ubermenu-responsive.ubermenu-sticky{margin-top:43px;left:0;width:100% !important;}
+.ubermenu.ubermenu-is-mobile.ubermenu-sticky{min-height:400px;max-height:600px;overflow-y:auto !important;-webkit-overflow-scrolling:touch;}
+.ubermenu.ubermenu-is-mobile.ubermenu-sticky > .ubermenu-nav{height:100%;}
+.ubermenu.ubermenu-is-mobile.ubermenu-sticky .ubermenu-active > .ubermenu-submenu-drop{max-height:none;}
+}
+.ubermenu .ubermenu-item.um-sticky-only{display:none !important;}
+.ubermenu.ubermenu-sticky .ubermenu-item-level-0.um-sticky-only{display:inline-block !important;}
+.ubermenu.ubermenu-sticky .ubermenu-submenu .ubermenu-item.um-sticky-only{display:block !important;}
+.ubermenu .ubermenu-item-level-0.um-unsticky-only{display:inline-block !important;}
+.ubermenu .ubermenu-submenu .ubermenu-item.um-unsticky-only{display:block !important;}
+.ubermenu.ubermenu-sticky .ubermenu-item.um-unsticky-only{display:none !important;}
+@media screen and (min-width:783px){ .admin-bar .ubermenu.ubermenu-sticky, .admin-bar .ubermenu-responsive-toggle.ubermenu-sticky{margin-top:32px;}
+}
+@media screen and (min-width:783px) and (max-width:){ .admin-bar .ubermenu.ubermenu-sticky{margin-top:78px;}
+}
+@media screen and (min-width:600px) and (max-width:782px){ .admin-bar .ubermenu.ubermenu-sticky, .admin-bar .ubermenu-responsive-toggle.ubermenu-sticky{margin-top:46px;}
+.admin-bar .ubermenu.ubermenu-sticky{margin-top:89px;}
+}</style>
+<style>.wp_rp_wrap{clear:both;}
+ul.related_post{margin:0 0 18px 0 !important;padding:0 !important;-moz-column-count:2 !important;-moz-column-gap:40px !important;-webkit-column-count:2 !important;-webkit-column-gap:40px !important;column-count:2 !important;column-gap:40px !important;width:100%!important;}
+ul.related_post li{list-style:none !important;margin:0 !important;padding:0 0 10px 0 !important;-moz-column-break-inside:avoid !important;-webkit-column-break-inside:avoid !important;break-inside:avoid-column !important;}
+ul.related_post li a.wp_rp_title{min-height:200px !important;}
+ul.related_post li img{display:block !important;border:1px solid #BDBDBD;background:#fff;vertical-align:bottom;border-radius:4px;padding:10px 30px 10px 30px;}
+a img{opacity:1;filter:alpha(opacity=100);transition:opacity .25s ease-in-out;-moz-transition:opacity .25s ease-in-out;-webkit-transition:opacity .25s ease-in-out;}
+a:hover img{opacity:.65;filter:alpha(opacity=65);transition:opacity .25s ease-in-out;-moz-transition:opacity .25s ease-in-out;-webkit-transition:opacity .25s ease-in-out;}
+ul.related_post li a.wp_rp_thumbnail{width:224px !important;height:150px !important;overflow:hidden;padding:0 !important;}
+div.wp_rp_footer{text-align:right !important;overflow:hidden !important;}
+div.wp_rp_footer a{color:#999 !important;font-size:11px !important;text-decoration:none !important;display:inline-block !important;}
+div.wp_rp_footer a.wp_rp_edit{color:#fff !important;font-size:12px !important;text-decoration:underline !important;font-weight:bold !important;background:#f79124 !important;border-radius:2px !important;padding:3px 6px;}
+@media screen and (max-width: 480px) {
+ul.related_post{-moz-column-count:auto !important;-moz-column-gap:normal !important;-moz-column-rule:none !important;-webkit-column-count:auto !important;-webkit-column-gap:normal !important;-webkit-column-rule:none !important;column-count:auto !important;column-gap:normal !important;column-rule:none !important;}
+}
+ul.related_post li .wp_rp_category a{display:inline !important;}</style>
+<link rel="alternate" type="application/rss+xml" title="متمم RSS Feed" href="https://motamem.org/feed/">
+<link rel="pingback" href="https://motamem.org/xmlrpc.php">
+<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style><link rel="icon" href="https://motamem.org/wp-content/uploads/2015/08/motamem-favicon.gif" type="image/gif">
+<link rel="shortcut icon" href="https://motamem.org/wp-content/uploads/2015/08/motamem-favicon1.gif">
+<link rel="apple-touch-icon" href="https://motamem.org/wp-content/uploads/2015/08/motamem-favicon2.gif">
+<script data-wpfc-render="false">var Wpfcll={s:[],osl:0,i:function(){Wpfcll.ss();window.addEventListener('load',function(){window.addEventListener("DOMSubtreeModified",function(e){Wpfcll.osl=Wpfcll.s.length;Wpfcll.ss();if(Wpfcll.s.length > Wpfcll.osl){Wpfcll.ls(false);}},false);Wpfcll.ls(true);});window.addEventListener('scroll',function(){Wpfcll.ls(false);});window.addEventListener('resize',function(){Wpfcll.ls(false);});window.addEventListener('click',function(){Wpfcll.ls(false);});},c:function(e,pageload){var w=document.documentElement.clientHeight || body.clientHeight;var n=pageload ? 0:800;var er=e.getBoundingClientRect();var t=0;var p=e.parentNode;if(typeof p.getBoundingClientRect=="undefined"){var pr=false;}else{var pr=p.getBoundingClientRect();}if(er.x==0 && er.y==0){for(var i=0;i < 10;i++){if(p){if(pr.x==0 && pr.y==0){p=p.parentNode;if(typeof p.getBoundingClientRect=="undefined"){pr=false;}else{pr=p.getBoundingClientRect();}}else{t=pr.top;break;}}};}else{t=er.top;}if(w - t+n > 0){return true;}return false;},r:function(e,pageload){var s=this;var oc,ot;try{oc=e.getAttribute("data-wpfc-original-src");ot=e.getAttribute("data-wpfc-original-srcset");if(oc || ot){if(s.c(e,pageload)){if(e.tagName=="DIV" || e.tagName=="A"){e.style.backgroundImage="url("+oc+")";e.removeAttribute("data-wpfc-original-src");e.removeAttribute("onload");}else{if(oc){e.setAttribute('src',oc);}if(ot){e.setAttribute('srcset',ot);}e.removeAttribute("data-wpfc-original-src");e.removeAttribute("onload");if(e.tagName=="IFRAME"){e.onload=function(){if(typeof window.jQuery !="undefined"){if(jQuery.fn.fitVids){jQuery(e).parent().fitVids({customSelector:"iframe[src]"});}}var s=e.getAttribute("src").match(/templates\/youtube\.html\#(.+)/);var y="https://www.youtube.com/embed/";if(s){try{var i=e.contentDocument || e.contentWindow;if(i.location.href=="about:blank"){e.setAttribute('src',y+s[1]);}}catch(err){e.setAttribute('src',y+s[1]);}}}}}}}}catch(error){console.log(error);console.log("==>",e);}},ss:function(){var i=Array.prototype.slice.call(document.getElementsByTagName("img"));var f=Array.prototype.slice.call(document.getElementsByTagName("iframe"));var d=Array.prototype.slice.call(document.getElementsByTagName("div"));var a=Array.prototype.slice.call(document.getElementsByTagName("a"));this.s=i.concat(f).concat(d).concat(a);},ls:function(pageload){var s=this;[].forEach.call(s.s,function(e,index){s.r(e,pageload);});}};document.addEventListener('DOMContentLoaded',function(){wpfci();});function wpfci(){Wpfcll.i();}</script>
+</head>
+{# پایان head سایت برای css , js#}
+
+
+
+<body class="rtl home blog">
+
+
+<div id="wrapper">
+<div id="container">
+<div class="clearfix"></div>
+
+
+{#    شروع لوگوی header#}
+{% if my %}
+{% for my in my %}
+    <div id="header">
+        <div class="logo">
+            <a href="#">
+                <img src="{{ my.logo.url }}" alt="{{ my.name_site }}" style="width: 200px ; height: 70px" title="{{ my.name_site }}">
+            </a>
+        </div>
+        <div class="header-right">
+
+        </div>
+    </div>
+{% endfor %}
+{% endif %}
+{#    پایان لوگوی header#}
+
+
+{#    شروع منوی header#}
+{% block category %}
+
+{% endblock category %}
+{#    پایان منوی header#}
+
+
+{#    شروع header دوره آموزشی برندسازی شخصی (کلیک کنید)#}
+{% if my %}
+{% for my in my %}
+    <div style="background-color: #fdc837;"> <div class="caption" style="color: #000000; font-weight: 500; line-height:65px; font-size: 1.4em; text-align: center;"> <a href="#" style="color:#9c0707; text-decoration: none; target=" _self"=""> <span style="color:#000000"> دوره های آموزشی {{ my.name_site }} </span> (کلیک کنید) </a></div></div>
+{% endfor %}
+{% endif %}
+{#    پایان header دوره آموزشی برندسازی شخصی (کلیک کنید)#}
+
+
+
+{#   شروع هر چیزی در وسط صفحه(بجز header and footer)نمایش داده میشود#}
+
+<div id="main-index"> <div style="height:20px;"></div>
+{% block center %}
+
+{% endblock center %}
+</div>
+{#   پایان هر چیزی در وسط صفحه(بجز header and footer)نمایش داده میشود#}
+
+
+
+{#    شروع فوتر سایت#}
+{% if footer %}
+{% for footer in footer %}
+        <div id="footer-widgets" class="clearfix"> <div class="footer-widget-box"></div></div>
+    <div id="footer"> <div id="copyrights"> © {{ footer.time_start|date }} <a href="http://motamem.org/profile/8099" style="text-decoration: none">تمام حقوق این سایت به سرپرستی {{ footer.name_admin }} تعلق دارد.</a> <br>{{ footer.copy_site }}</div></div>
+{% endfor %}
+{% endif %}
+{#    پایان فوتر سایت#}
+
+
+</div>
+</div>
+
+
+{#    شروع کد های مربوط به جاوااسکریپت ها#}
+<link rel="stylesheet" type="text/css" href="{% static 'first_app/css/5r0i8.css'%}" media="all">
+
+
+<script id="upstreamdd-js-extra">var MyAjax={"ajaxurl":"https:\/\/motamem.org\/wp-admin\/admin-ajax.php"};</script>
+
+
+<script id="jquerylike-js-extra">var MyAjax={"ajaxurl":"https:\/\/motamem.org\/wp-admin\/admin-ajax.php"};</script>
+
+
+<script id="wp_ulike-js-extra">var ulike_obj={"ajaxurl":"https:\/\/motamem.org\/wp-admin\/admin-ajax.php","text_after_like":"\u067e\u0634\u06cc\u0645\u0627\u0646 \u0634\u062f\u0645!","text_after_unlike":"\u0622\u0645\u0648\u0632\u0646\u062f\u0647 \u0628\u0648\u062f","button_text":"\u0622\u0645\u0648\u0632\u0646\u062f\u0647 \u0628\u0648\u062f","button_type":"text","return_initial_after_unlike":"1"};</script>
+
+
+<script id="edd-ajax-js-extra">var edd_scripts={"ajaxurl":"https:\/\/motamem.org\/wp-admin\/admin-ajax.php","position_in_cart":"","already_in_cart_message":"\u0634\u0645\u0627 \u0627\u06cc\u0646 \u0645\u0648\u0631\u062f \u0631\u0627 \u0642\u0628\u0644\u0627\u064b \u0628\u0647 \u0633\u0628\u062f\u062e\u0631\u06cc\u062f \u062e\u0648\u062f\u062a\u0627\u0646 \u0627\u0636\u0627\u0641\u0647 \u06a9\u0631\u062f\u06cc\u062f","empty_cart_message":"\u0633\u0628\u062f\u062e\u0631\u06cc\u062f \u062e\u0627\u0644\u06cc \u0627\u0633\u062a!","loading":"\u062f\u0631 \u062d\u0627\u0644 \u0628\u0627\u0631\u06af\u0630\u0627\u0631\u06cc","select_option":"\u0644\u0637\u0641\u0627\u064b \u06cc\u06a9 \u06af\u0632\u06cc\u0646\u0647 \u0627\u0646\u062a\u062e\u0627\u0628 \u06a9\u0646\u06cc\u062f","ajax_loader":"https:\/\/motamem.org\/wp-content\/plugins\/easy-digital-downloads\/assets\/images\/loading.gif","is_checkout":"0","default_gateway":"paypal","redirect_to_checkout":"1","checkout_page":"https:\/\/motamem.org\/checkout\/","permalinks":"1"};</script>
+
+
+<script id="ubermenu-js-extra">var ubermenu_data={"remove_conflicts":"on","reposition_on_load":"off","intent_delay":"300","intent_interval":"100","intent_threshold":"7","scrollto_offset":"50","scrollto_duration":"1000","responsive_breakpoint":"959","accessible":"on","retractor_display_strategy":"responsive","touch_off_close":"on","submenu_indicator_close_mobile":"on","collapse_after_scroll":"on","v":"3.7.3","configurations":["main"],"ajax_url":"https:\/\/motamem.org\/wp-admin\/admin-ajax.php","plugin_url":"https:\/\/motamem.org\/wp-content\/plugins\/ubermenu\/","disable_mobile":"off","prefix_boost":"","use_core_svgs":"off","aria_role_navigation":"off","aria_nav_label":"off","aria_expanded":"off","aria_hidden":"off","aria_controls":"","aria_responsive_toggle":"off","icon_tag":"i","esc_close_mobile":"on","theme_locations":{"secondary":"Secondary Menu","shiftnav":"ShiftNav [Main]"}};</script>
+
+
+<script id="ubermenu-sticky-js-js-extra">var ubermenu_sticky_settings=[];</script>
+
+
+<script id="couch-custom-js-js-extra">var couchmodejs={"ajaxUrl":"https:\/\/motamem.org\/wp-admin\/admin-ajax.php","loading_img":"https:\/\/motamem.org\/wp-content\/plugins\/wp-couch-mode\/assets\/images\/loading.gif"};</script>
+
+
+<script>$(document).ready(function (){
+var isChrome=/Chrome/.test(navigator.userAgent)&&/Google Inc/.test(navigator.vendor);
+if(window.location.hash&&isChrome){
+setTimeout(function (){
+var hash=window.location.hash;
+window.location.hash="";
+window.location.hash=hash;
+}, 2000);
+}});</script>
+
+
+<script src="{% static 'first_app/js/5r0jp1.js'%}" type="text/javascript"></script>
+
+<script src="{% static 'first_app/js/bootstrap.bundle.js'%}"></script>
+<script src="{% static 'first_app/js/main.js'%}"></script>
+
+<script>jQuery(function($){
+$('.comment-reply-link').click(function(e){
+e.preventDefault();
+CKEDITOR.instances.comment.destroy();
+addComment.moveForm.apply(addComment);
+CKEDITOR.replace("comment");
+});
+});</script>
+
+
+<script>window._wp_rp_static_base_url='https://wprp.sovrn.com/static/';
+window._wp_rp_wp_ajax_url="https://motamem.org/wp-admin/admin-ajax.php";
+window._wp_rp_plugin_version='3.6.4';
+window._wp_rp_post_id='70809';
+window._wp_rp_num_rel_posts='4';
+window._wp_rp_thumbnails=true;
+window._wp_rp_post_title='%D9%85%D8%AF%DB%8C%D8%B1%DB%8C%D8%AA+%D8%A8%D8%A7+%D8%B1%DB%8C%D8%B3%DA%A9+%D8%B5%D9%81%D8%B1%E2%80%8C+%28%DA%AF%D9%81%D8%AA%DA%AF%D9%88+%D8%AF%D8%B1%D8%A8%D8%A7%D8%B1%D9%87+%DA%A9%D8%A7%D8%B1%D8%AA%D9%88%D9%86%29';
+window._wp_rp_post_tags=[];
+window._wp_rp_promoted_content=true;</script>
+
+
+<script></script>
+
+
+<script defer="" src="{% static 'first_app/js/5r0il2.js'%}" type="text/javascript"></script>
+
+
+<script defer="" type="text/javascript" src="{% static 'first_app/js/5r0il3.js'%}" id="ubermenu-js"></script>
+
+
+<script defer="" type="text/javascript" src="{% static 'first_app/js/5r0il4.js'%}" id="ubermenu-sticky-js-js"></script>
+
+
+<script defer="" src="{% static 'first_app/js/5r0jp5.js'%}" type="text/javascript"></script>
+
+
+<script id="metaslider-flex-slider-js-after">document.addEventListener('DOMContentLoaded',function(){
+var metaslider_11184=function($){
+$('#metaslider_11184').flexslider({
+slideshowSpeed:3000,
+animation:"fade",
+controlNav:false,
+directionNav:true,
+pauseOnHover:true,
+direction:"horizontal",
+reverse:false,
+animationSpeed:600,
+prevText:false,
+nextText:false,
+fadeFirstSlide:true,
+slideshow:true
+});
+$(document).trigger('metaslider/initialized', '#metaslider_11184');
+};
+var timer_metaslider_11184=function(){
+var slider = !window.jQuery ? window.setTimeout(timer_metaslider_11184, 100):!jQuery.isReady ? window.setTimeout(timer_metaslider_11184, 1):metaslider_11184(window.jQuery);
+};
+timer_metaslider_11184();});</script>
+
+
+<script>document.addEventListener('DOMContentLoaded',function(){
+jQuery.noConflict();
+jQuery(function(){
+jQuery('ul.menu-secondary').superfish({
+animation: {opacity:'show'},
+autoArrows:  false,
+dropShadows: true,
+speed: 200,
+delay: 800
+});
+});
+jQuery('.menu-secondary-container').mobileMenu({
+defaultText: 'منو',
+className: 'menu-secondary-responsive',
+containerClass: 'menu-secondary-responsive-container',
+subMenuDash: '&ndash;'
+});
+});</script>
+
+
+<script>document.addEventListener('DOMContentLoaded',function(){
+jQuery(document).ready(function($){
+if($('#upme-registration-form').length > 0){
+$.validator.passwordRating.messages={
+"similar-to-username": "نام کاربری تکراری است",
+"mismatch": "کلمه عبور با هم مطابقت ندارند",
+"too-short": "رمز عبور بیش از حد کوتاه است",
+"very-weak": "بسیار ضعیف",
+"weak": "ضعیف",
+"good": "خوب",
+"strong": "قوی!"
+}
+$('#upme-registration-form').validate();
+$("#user_pass,#user_pass_confirm").valid();
+}
+$('.upme-fileupload').click(function(){
+$(this).next('input[type=file]').click();
+});
+$(':file').change(function(){
+$(this).prev('.upme-fileupload').text($(this).val());
+});
+$('.upme-tooltip').tipsy({
+trigger: 'hover',
+offset: 4
+});
+$('.upme-hide-from-public').click(function(e){
+e.preventDefault();
+if($(this).find('i').hasClass('icon-check-empty')){
+$(this).find('i').addClass('icon-check').removeClass('icon-check-empty');
+$(this).find('input[type=hidden]').val(1);
+}else{
+$(this).find('i').addClass('icon-check-empty').removeClass('icon-check');
+$(this).find('input[type=hidden]').val(0);
+}});
+$('.upme-field-edit a.upme-fire-editor').click(function(e){
+e.preventDefault();
+this_form=$(this).parent().parent().parent().parent().parent();
+if($(this_form).find('.upme-edit').is(':hidden')){
+if($(this_form).find('.upme-view').length > 0){
+$(this_form).find('.upme-view').slideUp(function(){
+$(this_form).find('.upme-edit').slideDown();
+$(this_form).find('.upme-field-edit a.upme-fire-editor').html('نمایش پروفایل');
+});
+}else{
+$(this_form).find('.upme-main').show();
+$(this_form).find('.upme-edit').slideDown();
+$(this_form).find('.upme-field-edit a.upme-fire-editor').html('نمایش پروفایل');
+}}else{
+$(this_form).find('.upme-edit').slideUp(function(){
+if($(this_form).find('.upme-main').hasClass('upme-main-compact')){
+$(this_form).find('.upme-main').hide();
+}
+$(this_form).find('.upme-view').slideDown();
+$(this_form).find('.upme-field-edit a.upme-fire-editor').html('ویرایش پروفایل');
+});
+}});
+$('.upme-registration').find('#user_email').change(function(){
+var new_user_email=$(this).val();
+$('.upme-registration .upme-pic').load('https://motamem.org/wp-content/plugins/ProProfile/ajax/upme-get-avatar.php?email=' + new_user_email);
+});
+$('.upme-registration').find('#display_name').bind('change keydown keyup',function(){
+$('.upme-registration .upme-field-name').html($('#display_name').val());
+});
+});});</script>
+{#    پایان کد های مربوط به جاوااسکریپت ها#}
+
+
+{#<div class="wpcm-overlay"><div class="wpcm-loading"><img src="https://motamem.org/wp-content/plugins/wp-couch-mode/assets/images/loading.gif"></div></div>#}
+
+
+</body>
+
+
+
+
+</html>

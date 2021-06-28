@@ -1,0 +1,154 @@
+
+{% extends "first_app/3_center_right.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block center_laft %}
+<div id="sidebar-primary">
+
+
+
+{#    شروع لیست های ثبت نام یا خرید فروشگاه متمم#}
+{% if my %}
+{% for my in my %}
+    <ul class="widget-container"><li id="black-studio-tinymce-13" class="widget widget_black_studio_tinymce"> <div style="width: 3in"><p></p><p></p>
+        <div class="su-button-center"><a href="{% url 'register' %}" class="su-button su-button-style-soft su-button-wide" style="color:#ffffff;background-color:#9c0707;border-color:#7d0606;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px" target="_self"><span style="color:#ffffff;padding:0px 0px;font-size:14px;line-height:32px;border-color:#ba5151;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px;text-shadow:none;-moz-text-shadow:none;-webkit-text-shadow:none"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ثبت نام در {{ my.name_site }} &nbsp; <br></span></a></div>
+        <div class="su-button-center"><a href="{% url 'loginsite' %}" class="su-button su-button-style-soft su-button-wide" style="color:#ffffff;background-color:#9c0707;border-color:#7d0606;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px" target="_self"><span style="color:#ffffff;padding:0px 0px;font-size:14px;line-height:32px;border-color:#ba5151;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px;text-shadow:none;-moz-text-shadow:none;-webkit-text-shadow:none"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ورود به {{ my.name_site }} &nbsp; <br></span></a></div>
+        <div class="su-button-center"><a href="#" class="su-button su-button-style-soft su-button-wide" style="color:#ffffff;background-color:#9c0707;border-color:#7d0606;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px" target="_self"><span style="color:#ffffff;padding:0px 20px;font-size:14px;line-height:32px;border-color:#ba5151;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px;text-shadow:px px px #627179;-moz-text-shadow:px px px #627179;-webkit-text-shadow:px px px #627179"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; خرید یا تمدید اشتراک</span></a></div><p></p><p></p>
+        <div class="su-button-center"><a href="#" class="su-button su-button-style-soft su-button-wide" style="color:#ffffff;background-color:#9c0707;border-color:#7d0606;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px" target="_self"><span style="color:#ffffff;padding:0px 0px;font-size:14px;line-height:32px;border-color:#ba5151;border-radius:7px;-moz-border-radius:7px;-webkit-border-radius:7px;text-shadow:none;-moz-text-shadow:none;-webkit-text-shadow:none"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;فروشگاه {{ my.name_site }} &nbsp;&nbsp;<br></span></a></div><p></p></div></li>
+    </ul>
+{% endfor %}
+{% endif %}
+{#    پایان لیست های ثبت نام یا خرید فروشگاه متمم#}
+
+<p style="height: 10px;">    </p>
+{#    شروع جستجــو در متمم#}
+{% if my %}
+{% for my in my %}
+    <ul class="widget-container"><li id="search-2" class="widget widget_search"><h3 class="widgettitle">جستجــو در {{ my.name_site }}</h3> <div id="search"> <form method="get" id="searchform" action="https://motamem.org/">
+    <div class="cell"> <input type="text" value="" name="s" id="s" onblur="if (this.value == '') {this.value = '';}" onfocus="if (this.value == '') {this.value = '';}"></div>
+    <div class="cell" style="cursor:pointer; vertical-align:bottom;"><div class="buttonsearch"><button type="submit" style=" margin: 0; padding: 0 ; border : 0; background : transparent; font-family : inherit; font-size : 1em; color:#FFFFFF; text-decoration:none; cursor : pointer;"><a style="color: white;vertical-align:middle; text-align:center;" class="mdi mdi-magnify"></a></button></div></div></form></div></li></ul>
+{% endfor %}
+{% endif %}
+{#    پایان جستجــو در متمم#}
+
+<p style="height: 10px;">    </p>
+{#    شروع ورود یا ثبت نام در متمم#}
+
+{#<ul class="nd_tabs">#}
+{#<li class=""><a href="#nd_register_form">ثبت نام در متمم</a></li>#}
+{#<li class="active"><a href="#nd_login_form">ورود برای اعضای متمم</a></li>#}
+{#</ul>#}
+{#    ﻿<form action="{% url 'login' %}" method="post" class="nd_form" id="nd_login_form" style="">#}
+{#    {% csrf_token %}#}
+{#    <div class="nd_form_inner">#}
+{#        <p><label for="nd_username">شناسه کاربری:</label>#}
+{#            <input type="text" class="text" name="log" id="nd_username" placeholder="شناسه کاربری{{ form.username }}"></p>#}
+{#        <p><label for="nd_password">پسورد:</label>#}
+{#            <input type="password" class="text" name="pwd" id="nd_password" placeholder="پسورد{{ form.password }}"></p>#}
+{#        <a class="forgotten" style="text-decoration: none" href="#nd_lost_password_form">رمز عبورم را فراموش کرده ام</a>#}
+{#        <input type="submit" class="button" style="background-color:#009933 !important; color:#FFFFFF !important;" value="ورود">#}
+{#        <input name="nd_login" type="hidden" value="true">#}
+{#        <input name="rememberme" type="hidden" id="rememberme" value="forever">#}
+{#        <input name="redirect_to" type="hidden" id="redirect_to" value="https://motamem.org/">#}
+{#    </div></form>#}
+{##}
+{#    ﻿<form action="{% url 'register' %}" method="post" class="nd_form" autocomplete="off" id="nd_register_form" style="display:none">#}
+{#    {% csrf_token %}#}
+{#    <div class="nd_form_inner">#}
+{#        <p> <label>نام و نام خانوادگی<br>#}
+{#            <input type="text" name="upme[first_name]" id="upme[first_name]" class="input" value="" placeholder="نام و نام خانوادگی{{ form.username }}"></label> </p>#}
+{#        <p><label for="nd_reg_username">شناسه کاربری:</label>#}
+{#            <input type="text" class="text" name="username" id="nd_reg_username" placeholder="شناسه کاربری{{ form.username }}"></p>#}
+{#        <p><label for="nd_reg_email">ایمیل:</label>#}
+{#            <input type="text" class="text" name="email" id="nd_reg_email" placeholder="ایمیل را بدون www.وارد کنید{{ form.email }}"></p>#}
+{#        <p><label for="nd_reg_password">پسورد:</label>#}
+{#            <input type="password" class="text" name="password" id="nd_reg_password" placeholder="پسورد{{ form.password }}">#}
+{#            <input type="password" class="text" name="password2" id="nd_reg_password_2" placeholder="تکرار پسورد{{ form.password }}"></p>#}
+{#        <p><label for="nd_reg_captcha"> لطفا معادله زیر را تکمیل نمایید:</label> </p>#}
+{#        <p><input type="hidden" name="cntctfrm_contact_action" value="true">#}
+{#            <input type="hidden" name="cptch_result" value="wmw=">#}
+{#            <input type="hidden" name="cptch_time" value="1621872392">#}
+{#            <input type="hidden" value="Version: 2.4">#}
+{#            <input type="text" autocomplete="off" name="cptch_number" value="" maxlength="1" size="1" style="margin-bottom:0;display:inline;font-size: 12px;width: 40px;"> + شش = 13</p>#}
+{#        <label for="nd_reg_human">#}
+{#            <input type="checkbox" name="human" id="nd_reg_human">لطفا اینجا را تیک بزنید</label>#}
+{#        <input type="submit" class="button" value="ثبت نام →">#}
+{#        <input name="nd_register" type="hidden" value="true">#}
+{#    </div></form>#}
+{##}
+{#    ﻿<form action="#" method="post" class="nd_form" autocomplete="off" id="nd_lost_password_form" style="display:none">#}
+{#    <div class="nd_form_inner">#}
+{#        <p>شناسه کاربری یا ایمیل خود را وارد نمایید.در صورت صحیح بودن، پسورد جدید به ایمیلتان ارسال خواهد شد</p>#}
+{#        <p><label for="nd_lost_username">شناسه کاربری یا ایمیل:</label>#}
+{#            <input type="text" class="text" name="username_or_email" id="nd_lost_username" placeholder="شناسه کاربری و یا ایمیل"></p>#}
+{#        <p><input type="submit" class="button" value="بازیابی پسورد →">#}
+{#            <input name="nd_lostpass" type="hidden" value="true"></p>#}
+{#    </div></form>#}
+
+
+    <ul class="widget-container"><li id="black-studio-tinymce-19" class="widget widget_black_studio_tinymce"> <div class="textwidget"></div></li></ul>
+
+{#    پایان ورود یا ثبت نام در متمم#}
+
+
+{#    شروع آخرین کاربران ویژه متمم#}
+
+{#    <ul class="widget-container"><li id="black-studio-tinymce-7" class="widget widget_black_studio_tinymce"><h3 class="widgettitle">آخرین کاربران ویژه متمم</h3> <div class="textwidget"><span dir="RTL" style="font-size:13px; line-height:30px;text-align: right;">ورود <span style="color: #990000;"><a style="color:#990000" href="https://motamem.org/profile/63802">محمد علی رمضانی </a>&nbsp; و&nbsp;<a style="color:#990000" href="https://motamem.org/profile/208643">محبوبه آشفته</a></span>&nbsp; و <span style="color: #990000;"><a style="color:#990000" href="https://motamem.org/profile/178906">امیرحسام شیخی</a> </span>به جمع کاربران ویژه متمم را خوش‌آمد می‌گوییم</span></div></li></ul>#}
+
+{#    پایان آخرین کاربران ویژه متمم#}
+
+
+{#    شروع دوستان برتر متممی در دو هفته اخیر#}
+
+{#    <ul class="widget-container"><li id="black-studio-tinymce-24" class="widget widget_black_studio_tinymce"><h3 class="widgettitle">دوستان برتر متممی در دو هفته اخیر</h3> <div class="textwidget"><p></p><ul> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/48988">علیرضا امینی نائینی</a> (۹۲ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/157693">مهدی کلانترزاده</a> (۸۱ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/186511">مهدی - علیزادگان</a> (۵۵ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/23531">علی محمد افراسیابی</a> (۵۱ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/81290">امیر جافری</a> (۴۶ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/567">پوریا‌پرهیزکار</a> (۴۵ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/55866">اسماعیل راستی پور</a> (۳۸ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/95536">مهدی جلالی</a> (۳۷ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/176039">دانشجوی همیشگی مدیریت</a> (۳۷ امتیاز)</span> </li> <li><span style="font-family:IRANSans" class="comment-author-link"><a href="https://motamem.org/profile/56699">سیداسلام جلالی</a> (۳۶ امتیاز)</span> </li> </ul><p></p></div></li></ul>#}
+
+{#    پایان دوستان برتر متممی در دو هفته اخیر#}
+
+
+{#    شروع لیست مهارت ها#}
+        <div class="su-button-center"><a href="" class="su-button su-button-style-default su-button-wide" style="color:#9c0707;background-color: #7B7B7B;border-color:#bebebe;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px" target="_self"><span style="color:#9c0707;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f3f3f3;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:0px 0px 0px ;-moz-text-shadow:0px 0px 0px ;-webkit-text-shadow:0px 0px 0px">دوره ها و مهارت ها</span></a></div>
+{% if menusite %}
+{% for post in menusite %}
+    <ul class="widget-container"><li id="black-studio-tinymce-11" class="widget widget_black_studio_tinymce"> <div class="textwidget">
+
+        <div class="su-button-center"><a href="/mysite/filter/{{ post.id }}/" class="su-button su-button-style-default su-button-wide" style="color:#9c0707;background-color:#eeeeee;border-color:#bebebe;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px" target="_self"><span style="color:#9c0707;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f3f3f3;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:0px 0px 0px ;-moz-text-shadow:0px 0px 0px ;-webkit-text-shadow:0px 0px 0px">{{ post.title }}</span></a></div>
+
+    </div></li></ul>
+{% endfor %}
+{% endif %}
+{#    پایان لیست مهارت ها#}
+
+
+{#    شروع لیست نویسندگان#}
+<p style="height: 20px">  </p>
+        <div class="su-button-center"><a href="" class="su-button su-button-style-default su-button-wide" style="color:#9c0707;background-color: #7B7B7B;border-color:#bebebe;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px" target="_self"><span style="color:#9c0707;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f3f3f3;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:0px 0px 0px ;-moz-text-shadow:0px 0px 0px ;-webkit-text-shadow:0px 0px 0px">نویسندگان</span></a></div>
+{% if post %}
+{% for posts in post %}
+    <ul class="widget-container"><li id="black-studio-tinymce-11" class="widget widget_black_studio_tinymce"> <div class="textwidget">
+
+        <div class="su-button-center"><a href="/mysite/author/{{ posts.author.id }}/" class="su-button su-button-style-default su-button-wide" style="color:#9c0707;background-color:#eeeeee;border-color:#bebebe;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px" target="_self"><span style="color:#9c0707;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f3f3f3;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:0px 0px 0px ;-moz-text-shadow:0px 0px 0px ;-webkit-text-shadow:0px 0px 0px">{{ posts.author.get_full_name }}</span></a></div>
+
+    </div></li></ul>
+{% endfor %}
+{% endif %}
+{#    پایان لیست نویسندگان#}
+
+
+{#شروع امکان ایجاد لیست هایی دیگر در اینجا فراهم است    #}
+    <ul class="widget-container"><li class="infobox-widget">
+    <ul> <li class="infobox-widget-description"> </li>
+    </ul>
+    </li></ul>
+{#پایان امکان ایجاد لیست هایی دیگر در اینجا فراهم است    #}
+
+
+{#    شروع آخرین دیدگاه‌ها#}
+
+{#    <ul class="widget-container"><li id="recent-comments-9" class="widget widget_recent_comments"><h3 class="widgettitle">آخرین دیدگاه‌ها</h3><ul id="recentcomments"><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/120754/" rel="external" class="url">ایمان</a></span> در <a href="https://motamem.org/%d8%a7%d8%ab%d8%b1-%d9%85%d8%a7%d8%b1-%da%a9%d8%a8%d8%b1%db%8c-%d9%88-%d8%aa%d9%81%da%a9%d8%b1-%d8%b3%db%8c%d8%b3%d8%aa%d9%85%db%8c/comment-page-61/#comment-296633">اثر مار کبرا – کاربرد تفکر سیستمی در سیاست گذاری</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/189981/" rel="external" class="url">صابر عباسزاده</a></span> در <a href="https://motamem.org/%d8%a7%d8%b3%d8%aa%d8%b9%d8%af%d8%a7%d8%af-%d9%85%d9%88%d8%b3%db%8c%d9%82%db%8c-%d9%88-%d8%b5%d8%af%d8%a7/comment-page-14/#comment-296632">استعدادیابی: استعداد موسیقی و صدا (۲)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/148014/" rel="external" class="url">میلاد طهماسبی</a></span> در <a href="https://motamem.org/%d8%b4%d8%a7%d8%ae%d8%b5-%da%a9%d9%85%db%8c-%da%a9%db%8c%d9%81%db%8c/comment-page-9/#comment-296631">تقسیم بندی شاخص‌ها: شاخصهای کمی در برابر شاخصهای کیفی</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/112784/" rel="external" class="url">آزاده ناصرهلالی</a></span> در <a href="https://motamem.org/%d8%aa%d8%b3%d9%84%d8%b7-%d8%a8%d8%b1-%da%a9%d9%84%d9%85%d8%a7%d8%aa-%d8%af%d8%b1-%d9%85%d8%b0%d8%a7%da%a9%d8%b1%d9%87/comment-page-9/#comment-296630">تسلط بر کلمات و اهمیت آن در مذاکره</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/206045/" rel="external" class="url">فاطمه ابوالهادی</a></span> در <a href="https://motamem.org/%d8%a7%d8%b1%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d9%82%d8%b6%d8%a7%d9%88%d8%aa-%db%8c%d8%a7%d8%af%da%af%db%8c%d8%b1%db%8c/comment-page-17/#comment-296629">توانایی ارزیابی و قضاوت یکی از مراحل یادگیری است</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/168449/" rel="external" class="url">آرزو مهدوى</a></span> در <a href="https://motamem.org/branding/comment-page-1/#comment-296628">دوره آموزش برندسازی شخصی</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/209100/" rel="external" class="url">محسن فکری</a></span> در <a href="https://motamem.org/%d9%85%d8%b3%d8%a7%d8%a6%d9%84-%da%86%d9%86%d8%af-%d8%b1%db%8c%d8%b4%d9%87-%d8%a7%db%8c/comment-page-49/#comment-296627">مسائل چند ریشه‌ای: زنبورهایی که ناپدید می‌شدند</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/155299/" rel="external" class="url">مریم قدرت آبادی</a></span> در <a href="https://motamem.org/%d9%85%d8%af%d9%84-%d8%b0%d9%87%d9%86%db%8c-%d8%af%d8%b1%d8%b3-%db%b4-%d9%85%d9%81%d9%87%d9%88%d9%85-%d9%be%d8%b1%d8%af%d8%a7%d8%b2%db%8c/comment-page-45/#comment-296622">مفهوم پردازی چیست و چه اهمیتی دارد؟</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/81290/" rel="external" class="url">امیر جافری</a></span> در <a href="https://motamem.org/%d9%85%d8%af%db%8c%d8%b1%db%8c%d8%aa-%d8%a8%d8%a7-%d8%b1%db%8c%d8%b3%da%a9-%d8%b5%d9%81%d8%b1%e2%80%8c/comment-page-3/#comment-296621">مدیریت با ریسک صفر‌ (گفتگو درباره کارتون)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/36262/" rel="external" class="url">ادریس میرویسی</a></span> در <a href="https://motamem.org/%da%af%d9%88%d8%b4-%d8%af%d8%a7%d8%af%d9%86-%d9%81%d8%b9%d8%a7%d9%84-%d9%85%d9%88%d8%ab%d8%b1/comment-page-25/#comment-296620">چند نکته در مورد مهارت گوش دادن فعال و موثر</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/11202/" rel="external" class="url">فرزین</a></span> در <a href="https://motamem.org/%d8%aa%d8%b9%d8%b1%db%8c%d9%81-%d9%86%da%af%d8%b1%d8%b4-%da%86%db%8c%d8%b3%d8%aa/comment-page-8/#comment-296619">تعریف نگرش چیست؟</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/36262/" rel="external" class="url">ادریس میرویسی</a></span> در <a href="https://motamem.org/%d9%82%d9%88%d8%a7%d9%86%db%8c%d9%86-%d9%85%d9%88%d8%b1%d9%81%db%8c-%d8%a7%d8%b1%d8%aa%d8%a8%d8%a7%d8%b7%d8%a7%d8%aa/comment-page-4/#comment-296618">قوانین مورفی در ارتباطات</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/1960/" rel="external" class="url">رسول</a></span> در <a href="https://motamem.org/%d8%b4%d8%ba%d9%84%db%8c-%d8%a8%d9%87-%d9%86%d8%a7%d9%85-%d9%81%d8%b1%d9%88%d8%b4%d9%86%d8%af%d9%87/comment-page-6/#comment-296617">دو نوع فروشندگی: فروش به افراد / فروش به سازمان‌ها و کسب و کارها</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/78992/" rel="external" class="url">لاله</a></span> در <a href="https://motamem.org/%d8%a7%d9%81%d8%b2%d8%a7%db%8c%d8%b4-%d8%b9%d8%b2%d8%aa-%d9%86%d9%81%d8%b3-%d9%87%d9%81%d8%aa%d9%87%e2%80%8c%db%8c-%d8%a7%d9%88%d9%84-%d8%a8%d8%b1%d9%86%d8%a7%d9%85%d9%87-%d9%be%d9%86/comment-page-1/#comment-296616">افزایش عزت نفس: هفته‌ی اول از برنامه پنج هفته‌ای</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/1960/" rel="external" class="url">رسول</a></span> در <a href="https://motamem.org/%d8%ac%d8%a7%db%8c%da%af%d8%a7%d9%87-%d8%b3%d8%ae%d9%86%d8%b1%d8%a7%d9%86%db%8c-%d8%a7%d9%86%da%af%db%8c%d8%b2%d8%b4%db%8c-%d8%af%d8%b1-%d9%81%d8%b1%d9%88%d8%b4/comment-page-10/#comment-296615">چالشها و سختی های کار فروش و فروشندگی</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/2805/" rel="external" class="url">جواد رکنی</a></span> در <a href="https://motamem.org/%d8%a7%d9%86%d8%aa%d8%ae%d8%a7%d8%a8-%d8%a7%d8%b3%d8%aa%d8%b1%d8%a7%d8%aa%da%98%db%8c%da%a9-%d9%88-%d8%a7%d8%b1%d8%b2%db%8c%d8%a7%d8%a8%db%8c-%d8%b4%d8%b1%d8%a7%db%8c%d8%b7/comment-page-6/#comment-296614">انتخاب استراتژیک و ارزیابی شرایط دنیای واقعی (Reality Check)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/54046/" rel="external" class="url">وحید مفید</a></span> در <a href="https://motamem.org/%d9%87%d8%af%d9%81-%da%af%d8%b0%d8%a7%d8%b1%db%8c-%d8%a7%d8%b4%d8%aa%d8%a8%d8%a7%d9%87/comment-page-6/#comment-296613">آرکتایپ‌های سیستمی | هدف گذاری اشتباه برای سیستمها</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/129738/" rel="external" class="url">لیلا</a></span> در <a href="https://motamem.org/%d8%b1%d9%88%d8%b4-%d9%87%d8%a7%db%8c-%d8%ad%d9%84-%d8%aa%d8%b9%d8%a7%d8%b1%d8%b6/comment-page-6/#comment-296612">کفش‌هایم کو؟ (بررسی روش های حل تعارض)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/206818/" rel="external" class="url">پویا </a></span> در <a href="https://motamem.org/%d8%b4%d8%a7%d8%ae%d8%b5-%d8%ad%d8%b1%d8%b5-%d8%aa%d8%b1%d8%b3-%d8%a8%d8%a7%d8%b2%d8%a7%d8%b1-%d8%a8%d9%88%d8%b1%d8%b3/comment-page-4/#comment-296611">معرفی شاخص های کلان اقتصادی: شاخص حرص و ترس (VIX و FGI)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/53569/" rel="external" class="url">ماتینا</a></span> در <a href="https://motamem.org/%d9%86%d9%88%d8%b4%d8%aa%d9%87-%d8%ba%db%8c%d8%b1-%d8%af%d8%a7%d8%b3%d8%aa%d8%a7%d9%86%db%8c-%da%86%db%8c%d8%b3%d8%aa/comment-page-44/#comment-296607">نوشته و کتاب غیر داستانی چیست؟ (Non-fiction)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/118056/" rel="external" class="url">Parsa.a</a></span> در <a href="https://motamem.org/%d9%be%d8%b1%d9%88%da%98%d9%87-%d9%be%d8%a7%db%8c%d8%a7%d9%86%db%8c-%d8%af%d8%b1%d8%b3-%d8%aa%d8%b5%d9%85%db%8c%d9%85-%da%af%db%8c%d8%b1%db%8c/comment-page-20/#comment-296606">پروژه پایانی درس تصمیم گیری</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/186511/" rel="external" class="url">مهدی - علیزادگان</a></span> در <a href="https://motamem.org/%da%86%d9%87-%da%a9%d8%b3%db%8c-%d9%85%d9%82%d8%b5%d8%b1-%d8%a7%d8%b3%d8%aa/comment-page-5/#comment-296605">چه کسی مقصر است؟</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/78992/" rel="external" class="url">لاله</a></span> در <a href="https://motamem.org/%d9%85%d9%87%d8%a7%d8%b1%d8%aa-%d8%a7%d8%a8%d8%b1%d8%a7%d8%b2-%d9%88%d8%ac%d9%88%d8%af-%d8%ac%d8%b1%d8%a7%d8%aa-%d9%88%d8%b1%d8%b2%db%8c/comment-page-22/#comment-296604">ابراز وجود و مهارت جرات ورزی (صراحت و قاطعیت)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/65316/" rel="external" class="url">محدثه دریاباری</a></span> در <a href="https://motamem.org/%d9%87%d8%af%d9%81-%da%af%d8%b0%d8%a7%d8%b1%db%8c-%db%8c%d8%a7%d8%af%da%af%db%8c%d8%b1%db%8c/comment-page-36/#comment-296603">هدف گذاری و تنظیم لیست اهداف در یادگیری (+ نمونه هدف گذاری)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/164150/" rel="external" class="url">seyed yaghob mousavi</a></span> در <a href="https://motamem.org/%d9%86%d9%82%d8%b4%d9%87-%d8%b3%d9%81%d8%b1-%d9%85%d8%b4%d8%aa%d8%b1%db%8c-%d9%88-%da%a9%d8%a7%d8%b1%d8%a8%d8%b1%d8%af-%d8%a2%d9%86-%d8%af%d8%b1-%d8%a8%d8%a7%d8%b2%d8%a7%d8%b1%db%8c%d8%a7%d8%a8%db%8c/comment-page-36/#comment-296601">نقشه سفر مشتری چیست؟ | طراحی، ترسیم و بررسی یک نمونه</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/208947/" rel="external" class="url">ندا سجادی</a></span> در <a href="https://motamem.org/%d8%b4%d8%ba%d9%84-%d9%85%d8%b4%d8%a7%d9%88%d8%b1%d9%87-%d9%85%d8%af%db%8c%d8%b1%db%8c%d8%aa/comment-page-1/#comment-296600">شغل مشاوره مدیریت و چند تصور اشتباه درباره‌ی آن</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/30005/" rel="external" class="url">راحله گ</a></span> در <a href="https://motamem.org/%d8%b1%d9%88%db%8c%da%a9%d8%b1%d8%af-%d8%b3%db%8c%d8%b3%d8%aa%d9%85%db%8c-%d8%b3%d9%86%d8%aa%d8%b2-%d8%a2%d9%86%d8%a7%d9%84%db%8c%d8%b2/comment-page-35/#comment-296599">رویکرد سیستمی یعنی توجه به ترکیب (سنتز)‌ به جای تجزیه (آنالیز)</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/180646/" rel="external" class="url">احسان رعیت</a></span> در <a href="https://motamem.org/%d8%b3%d8%a6%d9%88-%da%a9%d9%84%d8%a7%d9%87-%d8%b3%db%8c%d8%a7%d9%87-%da%a9%d9%84%d8%a7%d9%87-%d8%b3%d9%81%db%8c%d8%af/comment-page-27/#comment-296598">سئو کلاه سیاه در مقابل سئو کلاه سفید</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/30005/" rel="external" class="url">راحله گ</a></span> در <a href="https://motamem.org/%d8%aa%d9%81%da%a9%d8%b1-%d8%b3%db%8c%d8%b3%d8%aa%d9%85%db%8c-%d9%87%db%8c%da%86-%da%86%db%8c%d8%b2-%d9%85%d9%87%d9%85%e2%80%8c%d8%aa%d8%b1-%d9%86%db%8c%d8%b3%d8%aa/comment-page-82/#comment-296597">نقاط اهرمی، نقاط کلیدی و نقاط مرزی در سیستمها</a></li><li class="recentcomments"><span class="comment-author-link"><a href="https://motamem.org/profile/90090/" rel="external" class="url">افروز انصاری</a></span> در <a href="https://motamem.org/%d8%a7%db%8c%d9%86%d9%87%d8%a7-%da%a9%d8%af%d8%a7%d9%85-%d8%b3%db%8c%d8%a7%d8%b1%d9%87-%d8%a2%d9%85%d8%af%d9%87%e2%80%8c%d8%a7%d9%86%d8%af/comment-page-90/#comment-296596">هر یک از اینها از کدام سیاره آمده‌اند؟</a></li></ul></li></ul>#}
+
+{#    پایان آخرین دیدگاه‌ها#}
+
+
+</div>
+{% endblock center_laft %}
