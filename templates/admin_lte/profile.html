@@ -1,0 +1,47 @@
+{% extends "admin_lte/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    پروفایل کاربری
+{% endblock %}
+
+
+{% block main %}
+    <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title-left">پروفایل کاربری</h3>
+              </div>
+                <p style="height: 10px"></p>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-row">
+          <div class="form-group col-md-6 mb-0">
+            {{ form.username|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.email|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.first_name|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.last_name|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.special_user|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.image|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-8 mb-0">
+            {{ form.is_author|as_crispy_field }}
+          </div>
+
+
+        </div>
+        <button class="btn btn-success">ویرایش اطلاعات</button>
+    </form>
+         <p style="height: 10px"></p>
+            </div></div>
+{% endblock %}

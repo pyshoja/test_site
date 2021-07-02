@@ -1,0 +1,20 @@
+{% extends "admin_lte/base.html" %}
+
+{% block title %}
+    {% if user.is_author %}
+    داشبورد کاربری
+
+    {% else %}
+        <p style="color: red">هشدار :</p>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block main %}
+        {% if user.is_author %}
+    سلام {{ user.get_full_name }}  به صفحه کاربری خودتان خوش آمدید.
+        {% else %}
+     سلام {{ user.get_full_name }} شما یک کاربر عمومی هستید.
+        {% endif %}
+{% endblock %}

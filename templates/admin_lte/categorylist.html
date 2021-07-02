@@ -1,0 +1,73 @@
+{% extends "admin_lte/base.html" %}
+
+{% block title %}
+    {% if user.is_author %}
+    لیست دسته بندی ها
+
+    {% else %}
+        <p style="color: red">هشدار :</p>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block main %}
+    {% if user.is_author %}
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <!-- /.card-header -->
+          {% if object_list %}
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th>عنوان دسته بندی</th>
+                      <th>نویسنده</th>
+                      <th>زیر دسته</th>
+                      <th>کاربران عمومی</th>
+                      <th>ویرایش دسته بندی</th>
+                      <th>حذف دسته بندی</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in object_list %}
+                        <tr>
+                          <td>{{ x.title }}</td>
+                          <td>{{ x.author.get_full_name }}</td>
+                          <td>{{ x.parent }}</td>
+                          <td>
+                              {% if x.status == True %}
+                                <a>بله</a>
+                              {% else %}
+                                <a>خیر</a>
+                              {% endif %}
+                          </td>
+                          <td>
+                              <a href="{% url 'categoryupdate' x.pk %}"><span class="badge badge-success" style="font-size: 13px">ویرایش</span></a>
+                          </td>
+                          <td>
+                              {% if user.is_superuser %}
+                              <a href="{% url 'categorydelete' x.pk %}"><span class="badge badge-danger" style="font-size: 13px">حذف</span></a>
+                              {% else %}
+                                  <span class="badge badge-danger" style="font-size: 13px">برای حذف با پشتیبانی تماس بگیرید.</span>
+                              {% endif %}
+                          </td>
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+          {% else %}
+               <h4 class="text-danger">هنوز محتوایی برای نمایش اضافه نکرده اید.</h4>
+          {% endif %}
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+    {% else %}
+        <b class="badge badge-danger" style="font-size: 20px">شما یک کاربر عمومی در سایت من هستید و برای نویسنده شدن در سایت من باید هزینه آن را پرداخت نمائید.</b>
+    {% endif %}
+{% endblock %}
