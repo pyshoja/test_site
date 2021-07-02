@@ -51,6 +51,19 @@
 {% endif %}
             </li>
 
+
+                    <li id="menu-item-8625" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-8625 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
+                        <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'homeadmin' %}" tabindex="0">
+                            <span class="ubermenu-target-title ubermenu-target-text">
+                                {% if user.is_authenticated %}
+                                {{ user.get_full_name }}
+                                {% else %}
+                                پروفایل
+                                {% endif %}
+                            </span>
+                        </a>
+                    </li>
+
                 <li id="menu-item-8651" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-current-menu-item ubermenu-current_page_item ubermenu-item-home ubermenu-item-8651 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto"><a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'firstpage' %}" tabindex="0"><span class="ubermenu-target-title ubermenu-target-text">صفحه نخست</span></a></li>
 
 {% if menusite %}
@@ -91,7 +104,6 @@
                         {% else %}<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'loginsite' %}" tabindex="0">
                         <span class="ubermenu-target-title ubermenu-target-text">ورود</span></a>{% endif %}
                 </li>
-
 
 
             </ul>

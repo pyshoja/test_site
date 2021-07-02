@@ -170,7 +170,7 @@ ul.related_post li .wp_rp_category a{display:inline !important;}</style>
 {#    شروع header دوره آموزشی برندسازی شخصی (کلیک کنید)#}
 {% if my %}
 {% for my in my %}
-    <div style="background-color: #fdc837;"> <div class="caption" style="color: #000000; font-weight: 500; line-height:65px; font-size: 1.4em; text-align: center;"> <a href="#" style="color:#9c0707; text-decoration: none; target=" _self"=""> <span style="color:#000000"> دوره های آموزشی {{ my.name_site }} </span> (کلیک کنید) </a></div></div>
+    <div style="background-color: #fdc837;"> <div class="caption" style="color: #000000; font-weight: 500; line-height:65px; font-size: 1.4em; text-align: center;"> <a href="{% url 'firstpage' %}" style="color:#9c0707; text-decoration: none; target=" _self"=""> <span style="color:#000000"> دوره های آموزشی {{ my.name_site }} </span> (کلیک کنید) </a></div></div>
 {% endfor %}
 {% endif %}
 {#    پایان header دوره آموزشی برندسازی شخصی (کلیک کنید)#}

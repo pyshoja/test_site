@@ -1,7 +1,8 @@
 from django.db import models
-from django.contrib.auth.models import User
+from account.models import User
 from ckeditor.fields import RichTextField
 from django.utils import timezone
+from django.urls import reverse
 from django.utils.text import slugify
 
 
@@ -9,6 +10,7 @@ from django.utils.text import slugify
 
 
 class My(models.Model):
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='my_parented', verbose_name='نویسنده سایت')
     name_site = models.CharField(max_length=100, null=True, verbose_name='نام سایت')
     name_admin = models.CharField(max_length=100, null=True, verbose_name='نام ادمین')
     time_start = models.DateTimeField(null=True, verbose_name='سال افتتاح سایت')
@@ -26,6 +28,7 @@ class My(models.Model):
 
 
 class Category(models.Model):
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='category_parented', verbose_name='نویسنده')
     parent = models.ForeignKey('self', default=None, null=True, blank=True, on_delete=models.SET_NULL,
                                related_name='children', verbose_name='زیر دسته')
     title = models.CharField(max_length=100, null=True, verbose_name='عنوان')
@@ -54,6 +57,8 @@ class Category(models.Model):
             return self.check_self_parent(obj.parent)
         return False
 
+    def get_absolute_url (self):
+        return reverse('categorylist')
 
 
 class Post(models.Model):
@@ -74,9 +79,13 @@ class Post(models.Model):
     def __str__(self):
         return self.title
 
+    def get_absolute_url (self):
+        return reverse('postlist')
+
 
 
 class Slider(models.Model):
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='slider_parented', verbose_name='نویسنده')
     title = models.CharField(max_length=100, verbose_name='عنوان اسلایدر')
     image = models.ImageField(upload_to='slid_images', verbose_name='عکس')
 

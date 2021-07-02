@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 from django.views.generic import TemplateView , DetailView , ListView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
+from account.models import User
 from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib import messages
@@ -98,7 +98,7 @@ class aboutview (TemplateView):
 
 class registerview (generic.CreateView):
     form_class = registerForm
-    success_url = reverse_lazy('login')
+    success_url = reverse_lazy('loginsite')
     template_name = 'registration/register.html'
     success_message = 'سلام خوش آمدید پیامک ثبت نام به ایمیل شما ارسال گردید'
 

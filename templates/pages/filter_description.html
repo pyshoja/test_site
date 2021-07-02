@@ -7,6 +7,7 @@
 <div id="content">
 <div class="box-index" style="line-height: 28px;">
 
+{% if object_list %}
 {% for x in object_list %}
     <div class="post-wrap clearfix">
         <div class="post post-box clearfix post-70809 type-post status-publish format-standard has-post-thumbnail hentry category-1289 category-511 category-136 tag-general-general tag-2091 tag-2260" id="post-70809"> <h3 class="entry-title">
@@ -17,7 +18,9 @@
         </div>
     </div>
 {% endfor %}
-
+    {% else %}
+    <p class="text-danger" style="text-align: center">گزینه انتخابی شما از دسته بندی ها است.</p>
+{% endif %}
 
 {% if slider %}
 
