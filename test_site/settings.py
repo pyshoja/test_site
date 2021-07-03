@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'first_app.apps.FirstAppConfig',
     'crispy_forms',
     'ckeditor',
+    'ckeditor_uploader',
     # 'django.contrib.sites',
     'account.apps.AccountConfig',
 
@@ -166,3 +167,12 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 AUTH_USER_MODEL = 'account.User'
+
+
+# ckeditor configs
+CKEDITOR_UPLOAD_PATH = "uploads_ckeditor/"
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'Advanced',
+    },
+}
