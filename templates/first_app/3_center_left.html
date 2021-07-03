@@ -37,9 +37,8 @@
 <ul class="widget-container"><li id="black-studio-tinymce-19" class="widget widget_black_studio_tinymce"> <div class="textwidget"></div></li></ul>
 
 
-
+<p style="height: 10px;">    </p>
 {#    شروع لیست مهارت ها#}
-        <div class="su-button-center"><a href="" class="su-button su-button-style-default su-button-wide" style="color:#9c0707;background-color: #7B7B7B;border-color:#bebebe;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px" target="_self"><span style="color:#9c0707;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f3f3f3;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:0px 0px 0px ;-moz-text-shadow:0px 0px 0px ;-webkit-text-shadow:0px 0px 0px">دوره ها و مهارت ها</span></a></div>
         {% if menusite %}
         {% for post in menusite %}
             <ul class="widget-container"><li id="black-studio-tinymce-11" class="widget widget_black_studio_tinymce"> <div class="textwidget">
@@ -52,19 +51,6 @@
 {#    پایان لیست مهارت ها#}
 
 
-{#    شروع لیست نویسندگان#}
-        <p style="height: 5px">  </p>
-           <div class="su-button-center"><a href="" class="su-button su-button-style-default su-button-wide" style="color:#9c0707;background-color: #7B7B7B;border-color:#bebebe;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px" target="_self"><span style="color:#9c0707;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f3f3f3;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:0px 0px 0px ;-moz-text-shadow:0px 0px 0px ;-webkit-text-shadow:0px 0px 0px">نویسندگان</span></a></div>
-        {% if post %}
-        {% for posts in post %}
-            <ul class="widget-container"><li id="black-studio-tinymce-11" class="widget widget_black_studio_tinymce"> <div class="textwidget">
-
-                <div class="su-button-center"><a href="/mysite/author/{{ posts.author.id }}/" class="su-button su-button-style-default su-button-wide" style="color:#9c0707;background-color:#eeeeee;border-color:#bebebe;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px" target="_self"><span style="color:#9c0707;padding:0px 16px;font-size:13px;line-height:26px;border-color:#f3f3f3;border-radius:3px;-moz-border-radius:3px;-webkit-border-radius:3px;text-shadow:0px 0px 0px ;-moz-text-shadow:0px 0px 0px ;-webkit-text-shadow:0px 0px 0px">{{ posts.author.get_full_name }}</span></a></div>
-
-            </div></li></ul>
-        {% endfor %}
-        {% endif %}
-{#    پایان لیست نویسندگان#}
 
 
 </div>
