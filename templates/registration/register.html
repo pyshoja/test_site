@@ -15,8 +15,11 @@
                     <h1 class="logo-badge text-whitesmoke" style="color: black;"><span class="mdi mdi-account-circle"></span></h1>
                 </div>
                     <h3 class="text-whitesmoke"> ثبت نام در سایت من</h3>
+                {% if user.is_authenticated %}
+                    <p class="text-whitesmoke">ایجاد یک حساب کاربری جدید توسط {{ user.get_full_name }}</p>
+                {% else %}
                     <p class="text-whitesmoke">ایجاد یک حساب کاربری</p>
-
+                {% endif %}
                                 {% if form.errors %}
                                     <p style="color: red;text-align: center">
                                         هشدار : ثبت نام شما بخاطر یکی از دلایل ذیل رد شده است ، دوباره تلاش کنید.
@@ -64,8 +67,13 @@
                                 </p>
                                 {% endif %}
 
+                    {% if user.is_authenticated %}
+                        <p class="text-whitesmoke text-center"><small>{{ user.get_full_name }} با شناسه کاربری  « {{ user }} » در سایت من آنلاین هستید.</small></p>
+
+                    {% else %}
                         <p class="text-whitesmoke text-center"><small>آیا حساب کاربری دارید ؟</small></p>
                         <a class="text-darkyellow" style="text-decoration: none" href="{% url 'loginsite' %}"><small>ورود</small></a>
+                    {% endif %}
                     </form>
                     <p class="margin-t text-whitesmoke"><small> سایت من &copy; 1400</small> </p>
                 </div>

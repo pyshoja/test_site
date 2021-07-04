@@ -4,9 +4,21 @@
 {% load crispy_forms_tags %}
 
 {% block center_right %}
-  <div id="content">
-<div class="box-index" style="line-height: 28px;">
 
+    {% if user.is_authenticated %}
+     <div id="content">
+        <div class="box-index" style="line-height: 28px;">
+
+            <h6 style="text-align: center ; color: red">« {{ user.get_full_name }} »</h6>
+            <p style="text-align: center ; color: red">شما در حال حاضر از کاربران آنلاین سایت من میباشید.</p>
+
+        </div>
+     </div>
+    {% else %}
+
+
+     <div id="content">
+        <div class="box-index" style="line-height: 28px;">
 <form method="post">
     {% csrf_token %}
 {#<p style="height: 60px">   </p>#}
@@ -48,6 +60,9 @@
 
     </div>
 </div>
+
+    {% endif %}
+
 {% endblock center_right %}
 
 
