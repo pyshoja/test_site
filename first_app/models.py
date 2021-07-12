@@ -129,12 +129,14 @@ class support (models.Model):
     c = 3
     d = 4
     e = 5
+    f = 6
     STATES_CHOICES = [
         (a, 'مالی سایت'),
         (b, 'آموزش ها'),
         (c, 'روند ثبت نام و ورود'),
         (d, 'پیگیری ها'),
         (e, 'متفرقه'),
+        (f, 'درخواست حذف'),
     ]
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='support_parented', verbose_name='نویسنده')
     title_suppurt = models.IntegerField(choices=STATES_CHOICES , null=True , verbose_name='موضوع پیگیری')
