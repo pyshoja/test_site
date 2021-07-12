@@ -147,7 +147,6 @@ class support (models.Model):
     phone_user = models.CharField(max_length=11 , null=True , verbose_name='شماره تماس کاربر ')
     email_user = models.EmailField(max_length=100 , null=True , verbose_name='ایمیل کاربر ')
     description_user = RichTextField(blank=True, null=True, verbose_name='توضیحات برای راهنمایی پشتیبانی سایت')
-    date = models.DateTimeField(default=timezone.now, verbose_name='زمان درخواست')
 
     class Meta:
         ordering = ['-id', ]
