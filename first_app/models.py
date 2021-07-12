@@ -57,6 +57,7 @@ class Category(models.Model):
     status = models.BooleanField(null=True, verbose_name='نمایش برای کاربران عمومی')
 
     class Meta:
+        ordering = ['id', ]
         verbose_name = 'دسته بندی'
         verbose_name_plural = 'دسته بندی ها'
 
