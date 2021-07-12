@@ -74,7 +74,7 @@
         <h3 class="widgettitle">آخرین دیدگاه‌ها</h3>
             {% for x in comment %}
         <ul id="recentcomments">
-            <li class="recentcomments"><span class="comment-author-link"><a href="#" rel="external" class="url">{{ x.user.get_full_name }}</a></span> »  <a href="#">{{ x.content|truncatechars:25 }}</a></li>
+            <li class="recentcomments"><span class="comment-author-link"><a href="#" rel="external" class="url">{{ x.user.get_full_name }} در {{ x.content_object }}</a></span> »  <a href="#">{{ x.content|truncatechars:25 }}</a></li>
         </ul>
             {% endfor %}
     </li>
