@@ -34,6 +34,7 @@ class My(models.Model):
     email_admin = models.EmailField(max_length=100 , null=True , verbose_name='ایمیل ادمین ')
 
     class Meta:
+        ordering = ['id', ]
         verbose_name = '* ادمین سایت *'
         verbose_name_plural = '* ادمین سایت *'
 
@@ -95,7 +96,7 @@ class Post(models.Model):
     # hits = models.ManyToManyField(Apiadress, blank=True , related_name='hits', verbose_name='بازدیدها')
 
     class Meta:
-        ordering = ['-date', ]
+        ordering = ['-id', ]
         verbose_name = 'پست'
         verbose_name_plural = 'پست ها'
 
@@ -113,6 +114,7 @@ class Slider(models.Model):
     image = models.ImageField(upload_to='slid_images', verbose_name='عکس')
 
     class Meta:
+        ordering = ['-id', ]
         verbose_name = 'اسلایدر'
         verbose_name_plural = 'اسلایدر'
 
@@ -145,8 +147,10 @@ class support (models.Model):
     phone_user = models.CharField(max_length=11 , null=True , verbose_name='شماره تماس کاربر ')
     email_user = models.EmailField(max_length=100 , null=True , verbose_name='ایمیل کاربر ')
     description_user = RichTextField(blank=True, null=True, verbose_name='توضیحات برای راهنمایی پشتیبانی سایت')
+    date = models.DateTimeField(default=timezone.now, verbose_name='زمان درخواست')
 
     class Meta:
+        ordering = ['-id', ]
         verbose_name = 'پشتیبانی سایت'
         verbose_name_plural = 'پشتیبانی سایت'
 
