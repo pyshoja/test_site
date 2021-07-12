@@ -1,0 +1,80 @@
+{% extends "admin_lte/base.html" %}
+
+{% block title %}
+    {% if user %}
+    لیست دیدگاه ها
+    {% else %}
+        <p style="color: red">هشدار :</p>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block main %}
+    {% if user %}
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <!-- /.card-header -->
+          {% if object_list %}
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                        {% if user.is_superuser %}
+                      <th>شناسه کاربری</th>
+                      <th>نام و نام خانوادگی</th>
+                      <th>ایمیل</th>
+                      <th>زمان پست</th>
+                      <th>زمان ویرایش</th>
+                         {% endif %}
+                      <th>نام مقاله</th>
+                      <th>دیدگاه</th>
+                      <th>پاسخ جدید</th>
+                      <th>ویرایش دیدگاه</th>
+                      <th>حذف دیدگاه</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in object_list %}
+                        <tr>
+                        {% if user.is_superuser %}
+                        <td>{{ x.user }}</td>
+                        <td>{{ x.user.get_full_name }}</td>
+                        <td>{{ x.email }}</td>
+                        <td>{{ x.posted }}</td>
+                        <td>{{ x.edited }}</td>
+                        {% endif %}
+                        <td>{{ x.content_object }}</td>
+                        <td>
+                            {% if x.parent == none %}
+
+                            {% else %}
+                                {{ x.parent }}
+                            {% endif %}
+                        </td>
+                        <td>{{ x.content }}</td>
+                          <td>
+                              <a href="{% url 'commentupdate' x.pk %}"><span class="badge badge-success" style="font-size: 13px">ویرایش</span></a>
+                          </td>
+                          <td>
+                              <a href="{% url 'commentdelete' x.pk %}"><span class="badge badge-danger" style="font-size: 13px">حذف</span></a>
+                          </td>
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+          {% else %}
+               <h4 class="text-danger">هنوز محتوایی برای نمایش اضافه نکرده اید.</h4>
+          {% endif %}
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+    {% else %}
+        <b class="badge badge-danger" style="font-size: 20px">شما یک کاربر عمومی در سایت من هستید و برای نویسنده شدن در سایت من باید هزینه آن را پرداخت نمائید.</b>
+    {% endif %}
+{% endblock %}

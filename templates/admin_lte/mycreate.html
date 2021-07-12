@@ -1,0 +1,60 @@
+{% extends "admin_lte/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    درباره من
+{% endblock %}
+
+
+{% block main %}
+    <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title-left">اطلاعات درباره من</h3>
+              </div>
+                <p style="height: 10px"></p>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-row">
+    {% if user.is_superuser %}
+          <div class="form-group col-md-4 mb-0">
+            {{ form.author|as_crispy_field }}
+          </div>
+    {% endif %}
+          <div class="form-group col-md-4 mb-0">
+            {{ form.name_site|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-4 mb-0">
+            {{ form.name_admin|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-6 mb-0">
+            {{ form.adress_admin|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-3 mb-0">
+            {{ form.phone_admin|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-3 mb-0">
+            {{ form.email_admin|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-4 mb-0">
+            {{ form.title|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-8 mb-0">
+            {{ form.copy_site|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-12 mb-0">
+              {{ form.media }}
+            {{ form.description|as_crispy_field }}
+          </div>
+          <div class="form-group col-md-2 mb-0">
+            {{ form.logo|as_crispy_field }}
+          </div>
+        </div>
+        <button class="btn btn-success">ارسال درباره من</button>
+        {% if user.is_superuser and request.resolver_match.kwargs.pk %}
+        <a href="{% url 'mydelete' request.resolver_match.kwargs.pk %}" class="btn btn-danger">حذف</a>
+        {% endif %}
+    </form>
+         <p style="height: 10px"></p>
+            </div></div>
+{% endblock %}

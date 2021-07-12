@@ -1,0 +1,35 @@
+{% extends "admin_lte/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+     ویرایش دیدگاه من
+{% endblock %}
+
+
+{% block main %}
+    <div class="col-md-12">
+            <!-- general form elements -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title-left">ویرایش دیدگاه</h3>
+              </div>
+                <p style="height: 10px"></p>
+    <form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <div class="form-row">
+        {% if user.is_superuser %}
+          <div class="form-group col-md-2 mb-0">
+            {{ form.user|as_crispy_field }}
+          </div>
+        {% endif %}
+          <div class="form-group col-md-4 mb-0">
+            {{ form.content|as_crispy_field }}
+          </div>
+        </div>
+        <button class="btn btn-success">ارسال دیدگاه </button>
+        {% if user.is_superuser and request.resolver_match.kwargs.pk %}
+        <a href="{% url 'supportdelete' request.resolver_match.kwargs.pk %}" class="btn btn-danger">حذف</a>
+        {% endif %}
+    </form>
+         <p style="height: 10px"></p>
+            </div></div>
+{% endblock %}

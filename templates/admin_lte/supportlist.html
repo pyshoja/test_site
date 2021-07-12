@@ -1,0 +1,71 @@
+{% extends "admin_lte/base.html" %}
+
+{% block title %}
+    {% if user %}
+    لیست درخواست ها به پشتیبانی سایت
+
+    {% else %}
+        <p style="color: red">هشدار :</p>
+    {% endif %}
+
+{% endblock %}
+
+
+{% block main %}
+    {% if user %}
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+
+              <!-- /.card-header -->
+          {% if object_list %}
+              <div class="card-body table-responsive p-0">
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th> نویسنده</th>
+                      <th>موضوع پیگیری</th>
+                      <th>نام و نام خانوادگی</th>
+                      <th>شماره تماس</th>
+                      <th>ایمیل</th>
+                      <th>متن درخواست به پشتیبانی سایت</th>
+                      <th>ویرایش</th>
+                      <th>حذف</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for x in object_list %}
+                        <tr>
+                          <td>{{ x.author }}</td>
+                          <td>{{ x.get_title_suppurt_display }}</td>
+                          <td>{{ x.name_user }}</td>
+                          <td>{{ x.phone_user }}</td>
+                          <td>{{ x.email_user }}</td>
+                          <td>{{ x.description_user |safe|truncatechars:50 }}</td>
+                          <td>
+                              <a href="{% url 'supportupdate' x.pk %}"><span class="badge badge-success" style="font-size: 13px">ویرایش</span></a>
+                          </td>
+                          <td>
+                              {% if user.is_superuser %}
+                              <a href="{% url 'supportdelete' x.pk %}"><span class="badge badge-danger" style="font-size: 13px">حذف</span></a>
+                              {% else %}
+                                  <span class="badge badge-danger" style="font-size: 13px">برای حذف با پشتیبانی تماس بگیرید.</span>
+                              {% endif %}
+                          </td>
+                        </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+          {% else %}
+               <h4 class="text-danger">هنوز محتوایی برای نمایش اضافه نکرده اید.</h4>
+          {% endif %}
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+        </div>
+    {% else %}
+        <b class="badge badge-danger" style="font-size: 20px">{{ user.get_full_name }} ، شما دسترسی به این صفحه ندارید.</b>
+    {% endif %}
+{% endblock %}
