@@ -9,7 +9,7 @@ from .models import My , Slider , Category , Post , support
 
 
 class supportadmin (admin.ModelAdmin):
-    list_display = ('author','title_suppurt','name_user','phone_user','email_user','date')
+    list_display = ('author','title_suppurt','name_user','phone_user','email_user')
 admin.site.register(support , supportadmin)
 
 
