@@ -62,6 +62,7 @@ class description (LoginRequiredMixin , DetailView):
 class filter_category (ListView):
     template_name = 'pages/filter_description.html'
     model = Post
+    paginate_by = 5
 
     def get_queryset(self, **kwargs):
         query = super().get_queryset(**kwargs)
@@ -156,9 +157,10 @@ class loginview (LoginView):
 class searchlist (ListView):
     template_name = 'pages/searchlist.html'
     model = Post
+    paginate_by = 5
 
     def get_queryset(self):
-        search = self.request.GET.get('s')
+        search = self.request.GET.get('s','')
         return Post.objects.filter(Q(description__icontains=search) | Q(title__icontains=search))
 
     def get_context_data(self, **kwargs):
@@ -169,6 +171,7 @@ class searchlist (ListView):
         context['footer'] = My.objects.all()
         context['slider'] = Slider.objects.all()
         context['post'] = Post.objects.all()
+        context['comment'] = Comment.objects.all()
         return context
 
 
