@@ -30,8 +30,93 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-    {% if user.is_superuser or user.is_author %}
-           <li class="nav-item has-treeview menu-open">
+
+
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                تنظیمات
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+        {% if user.is_superuser %}
+                  <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
+                      <i class="nav-icon fas fa"></i>
+                      <p>
+                        درباره من
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{% url 'mylist' %}" class="nav-link {% if request.resolver_match.url_name == 'mylist' %}active{% endif %}">
+                          <i class="fa fa-list nav-icon"></i>
+                          <p>مشاهده درباره من</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="{% url 'mycreate' %}" class="nav-link {% if request.resolver_match.url_name == 'mycreate' %}active{% endif %}">
+                          <i class="fa fa-edit nav-icon"></i>
+                          <p>ایجاد درباره من</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+            {% endif %}
+                  <li class="nav-item has-treeview menu-open">
+                    <a href="#" class="nav-link active">
+                      <i class="nav-icon fas fa"></i>
+                      <p>
+                        پشتیبانی سایت
+                        <i class="right fas fa-angle-left"></i>
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{% url 'supportlist' %}" class="nav-link {% if request.resolver_match.url_name == 'supportlist' %}active{% endif %}">
+                          <i class="fa fa-list nav-icon"></i>
+                          <p>لیست درخواست ها</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="{% url 'supportcreate' %}" class="nav-link {% if request.resolver_match.url_name == 'supportcreate' %}active{% endif %}">
+                          <i class="fa fa-edit nav-icon"></i>
+                          <p>ثبت درخواست جدید</p>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+
+                      <li class="nav-item has-treeview">
+                        <a href="#" class="nav-link active">
+                          <i class="nav-icon fas fa"></i>
+                          {% if user.is_superuser %}
+                          <p>
+                            دیدگاه ها
+                            <i class="right fas fa-angle-left"></i>
+                          </p>
+                          {% else %}
+                            دیدگاه های من
+                          {% endif %}
+                        </a>
+                        <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                            <a href="{% url 'commentlist' %}" class="nav-link {% if request.resolver_match.url_name == 'commentlist' %}active{% endif %}">
+                              <i class="fa fa-list nav-icon"></i>
+                              <p>لیست دیدگاه ها</p>
+                            </a>
+                          </li>
+                        </ul>
+                      </li>
+            </ul>
+          </li>
+
+
+    {% if user.is_superuser %}
+           <li class="nav-item has-treeview">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -54,7 +139,10 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item has-treeview menu-open">
+    {% endif %}
+
+    {% if user.is_author %}
+          <li class="nav-item has-treeview">
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -78,6 +166,35 @@
             </ul>
           </li>
     {% endif %}
+
+    {% if user.is_superuser %}
+          <li class="nav-item has-treeview">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                اسلایدر ها
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'sliderlist' %}" class="nav-link {% if request.resolver_match.url_name == 'sliderlist' %}active{% endif %}">
+                  <i class="fa fa-list nav-icon"></i>
+                  <p>لیست اسلایدر ها</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'slidercreate' %}" class="nav-link {% if request.resolver_match.url_name == 'slidercreate' %}active{% endif %}">
+                  <i class="fa fa-edit nav-icon"></i>
+                  <p>ایجاد اسلایدر ها</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+    {% endif %}
+
+
+
           <li class="nav-item">
             <a href="{% url 'profile' %}" class="nav-link">
               <i class="nav-icon fas fa-th"></i>

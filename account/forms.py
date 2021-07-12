@@ -1,5 +1,6 @@
 from django import forms
 from account.models import User
+from first_app.models import Post
 
 class profileform (forms.ModelForm):
     def __init__(self, *args, **kwargs):

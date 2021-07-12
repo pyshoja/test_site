@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     # 'django.contrib.sites',
     'account.apps.AccountConfig',
+    'comment',
+    'star_ratings',
 
 ]
 
@@ -57,6 +59,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'first_app.middleware.saveipadressMiddleware',
 ]
 
 ROOT_URLCONF = 'test_site.urls'
@@ -176,3 +179,10 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'Advanced',
     },
 }
+
+
+# star app
+STAR_RATINGS_STAR_HEIGHT= 16
+STAR_RATINGS_RANGE= 5
+# STAR_RATINGS_RERATE = False
+# STAR_RATINGS_ANONYMOUS = True

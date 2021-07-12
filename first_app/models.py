@@ -4,20 +4,34 @@ from ckeditor.fields import RichTextField
 from django.utils import timezone
 from django.urls import reverse
 from django.utils.text import slugify
+from django.contrib.contenttypes.fields import GenericRelation
+from comment.models import Comment
 
 
 # Create your models here.
 
 
+class Apiadress (models.Model):
+    api_adress = models.GenericIPAddressField(verbose_name='آدرس آی پی')
+
+    class Meta:
+        verbose_name = 'آی پی آدرس'
+        verbose_name_plural = 'آی پی آدرس ها'
+
+
+
 class My(models.Model):
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='my_parented', verbose_name='نویسنده سایت')
     name_site = models.CharField(max_length=100, null=True, verbose_name='نام سایت')
-    name_admin = models.CharField(max_length=100, null=True, verbose_name='نام ادمین')
+    name_admin = models.CharField(max_length=100, null=True, verbose_name='نام و نام خانوادگی ادمین')
     time_start = models.DateTimeField(null=True, verbose_name='سال افتتاح سایت')
-    title = models.CharField(max_length=200, null=True, verbose_name='عنوان کسب و کار')
-    copy_site = models.CharField(max_length=200, null=True, verbose_name='جواز کپی')
-    description = RichTextField(blank=True, null=True, verbose_name='توضیحات سایت')
-    logo = models.ImageField(upload_to='my_images', verbose_name='لوگوی من')
+    title = models.CharField(max_length=200, null=True, verbose_name='مشهوریت سایت با نام')
+    copy_site = models.CharField(max_length=200, null=True, verbose_name='توضیح در مورد جواز کپی از سایت')
+    description = RichTextField(blank=True, null=True, verbose_name='توضیحات و معرفی درباره سایت')
+    logo = models.ImageField(upload_to='my_images', verbose_name='لوگوی سایت')
+    adress_admin = models.CharField(max_length=1000 , null=True , verbose_name='آدرس و موقعیت ')
+    phone_admin = models.CharField(max_length=11 , null=True , verbose_name='شماره تماس ادمین ')
+    email_admin = models.EmailField(max_length=100 , null=True , verbose_name='ایمیل ادمین ')
 
     class Meta:
         verbose_name = '* ادمین سایت *'
@@ -25,6 +39,10 @@ class My(models.Model):
 
     def __str__(self):
         return self.name_site
+
+    def get_absolute_url (self):
+        return reverse('mylist')
+
 
 
 class Category(models.Model):
@@ -71,6 +89,9 @@ class Post(models.Model):
     description = RichTextField(blank=True, null=True, verbose_name='توضیحات')
     image = models.ImageField(upload_to='post_images', verbose_name='عکس')
     status = models.BooleanField(default=True, verbose_name='نمایش برای کاربران عمومی')
+    preview = models.BooleanField(default=True , verbose_name='پیش نویس')
+    comments = GenericRelation(Comment)
+    hits = models.ManyToManyField(Apiadress, blank=True , related_name='hits', verbose_name='بازدیدها')
 
     class Meta:
         verbose_name = 'پست'
@@ -95,3 +116,38 @@ class Slider(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url (self):
+        return reverse('sliderlist')
+
+
+
+class support (models.Model):
+    a = 1
+    b = 2
+    c = 3
+    d = 4
+    e = 5
+    STATES_CHOICES = [
+        (a, 'مالی سایت'),
+        (b, 'آموزش ها'),
+        (c, 'روند ثبت نام و ورود'),
+        (d, 'پیگیری ها'),
+        (e, 'متفرقه'),
+    ]
+    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='support_parented', verbose_name='نویسنده')
+    title_suppurt = models.IntegerField(choices=STATES_CHOICES , null=True , verbose_name='موضوع پیگیری')
+    name_user = models.CharField(max_length=200 , null=True , verbose_name='نام و نام خانوادگی کاربر')
+    phone_user = models.CharField(max_length=11 , null=True , verbose_name='شماره تماس کاربر ')
+    email_user = models.EmailField(max_length=100 , null=True , verbose_name='ایمیل کاربر ')
+    description_user = RichTextField(blank=True, null=True, verbose_name='توضیحات برای راهنمایی پشتیبانی سایت')
+
+    class Meta:
+        verbose_name = 'پشتیبانی سایت'
+        verbose_name_plural = 'پشتیبانی سایت'
+
+    def __str__(self):
+        return self.title_suppurt
+
+    def get_absolute_url (self):
+        return reverse('supportlist')

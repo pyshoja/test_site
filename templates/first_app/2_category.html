@@ -30,16 +30,29 @@
 
                         <ul class="ubermenu-submenu ubermenu-submenu-id-55497 ubermenu-submenu-type-auto ubermenu-submenu-type-stack">
                             <li id="menu-item-55493" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-55493 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto">
-                                <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#">
-                                    <span class="ubermenu-target-title ubermenu-target-text">تنظیمات</span>
+                                <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'about' %}">
+                                    <span class="ubermenu-target-title ubermenu-target-text">درباره من</span>
                                 </a>
                             </li>
                         </ul>
 
                         <ul class="ubermenu-submenu ubermenu-submenu-id-55497 ubermenu-submenu-type-auto ubermenu-submenu-type-stack">
                             <li id="menu-item-55493" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-55493 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto">
-                                <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'about' %}">
-                                    <span class="ubermenu-target-title ubermenu-target-text">درباره ما</span>
+                                <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'profile' %}">
+                                    <span class="ubermenu-target-title ubermenu-target-text">پروفایل من</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                    <li id="menu-item-55497" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-55497 ubermenu-item-auto ubermenu-item-header ubermenu-item-level-1 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-stack">
+                        <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#">
+                            <span class="ubermenu-target-title ubermenu-target-text">پشتیبانی سایت</span>
+                        </a>
+
+                        <ul class="ubermenu-submenu ubermenu-submenu-id-55497 ubermenu-submenu-type-auto ubermenu-submenu-type-stack">
+                            <li id="menu-item-55493" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-55493 ubermenu-item-auto ubermenu-item-normal ubermenu-item-level-2 ubermenu-column ubermenu-column-auto">
+                                <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'supportcreate' %}">
+                                    <span class="ubermenu-target-title ubermenu-target-text">ارتباط با ما</span>
                                 </a>
                             </li>
                         </ul>
@@ -68,7 +81,8 @@
 
 {% if menusite %}
 {% for menu in menusite %}
-        {% if menu.parent == None %}<li id="menu-item-8625" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-8625 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
+        {% if menu.parent == None %}
+            <li id="menu-item-8625" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-8625 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
 
                 <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="#" tabindex="0">
                     <span class="ubermenu-target-title ubermenu-target-text">{{ menu.title }}</span>
@@ -94,9 +108,17 @@
                 {% endfor %}
                 </ul>
 
-        </li>{% endif %}
+            </li>
+        {% endif %}
 {% endfor %}
 {% endif %}
+
+
+{#                <li id="menu-item-8625" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-8625 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">#}
+{#                    <a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'support' %}" tabindex="0">#}
+{#                        <span class="ubermenu-target-title ubermenu-target-text">ارتباط با ما</span></a>#}
+{#                </li>#}
+
 
                 <li id="menu-item-8625" class="ubermenu-item ubermenu-item-type-custom ubermenu-item-object-custom ubermenu-item-has-children ubermenu-item-8625 ubermenu-item-level-0 ubermenu-column ubermenu-column-auto ubermenu-has-submenu-drop ubermenu-has-submenu-mega">
                         {% if user.is_authenticated %}<a class="ubermenu-target ubermenu-item-layout-default ubermenu-item-layout-text_only" href="{% url 'logout' %}" tabindex="0">

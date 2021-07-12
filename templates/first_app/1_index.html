@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="{% static 'mdi/css/materialdesignicons.min.css' %}">
 
         <script src="{% static 'first_app/js/jquery-3.6.0.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
     <style>
         @font-face {
             font-family: 'iransans';
@@ -146,7 +148,7 @@ ul.related_post li .wp_rp_category a{display:inline !important;}</style>
 {% if my %}
 {% for my in my %}
     <div id="header">
-        <div class="logo">
+        <div class="logo" style="text-align: right">
             <a href="#">
                 <img src="{{ my.logo.url }}" alt="{{ my.name_site }}" style="width: 200px ; height: 70px" title="{{ my.name_site }}">
             </a>

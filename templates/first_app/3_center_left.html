@@ -33,9 +33,15 @@
 {#    شروع جستجــو در متمم#}
 {% if my %}
 {% for my in my %}
-    <ul class="widget-container"><li id="search-2" class="widget widget_search"><h3 class="widgettitle">جستجــو در {{ my.name_site }}</h3> <div id="search"> <form method="get" id="searchform" action="https://motamem.org/">
-    <div class="cell"> <input type="text" value="" name="s" id="s" onblur="if (this.value == '') {this.value = '';}" onfocus="if (this.value == '') {this.value = '';}"></div>
-    <div class="cell" style="cursor:pointer; vertical-align:bottom;"><div class="buttonsearch"><button type="submit" style=" margin: 0; padding: 0 ; border : 0; background : transparent; font-family : inherit; font-size : 1em; color:#FFFFFF; text-decoration:none; cursor : pointer;"><a style="color: white;vertical-align:middle; text-align:center;" class="mdi mdi-magnify"></a></button></div></div></form></div></li></ul>
+    <ul class="widget-container"><li id="search-2" class="widget widget_search"><h3 class="widgettitle">جستجــو در {{ my.name_site }}</h3> <div id="search">
+        <form method="get" id="searchform" action="{% url 'searchlist' %}">
+    <div class="cell">
+        <input type="text" value="" name="s" id="s" onblur="if (this.value == '') {this.value = '';}" onfocus="if (this.value == '') {this.value = '';}">
+    </div>
+    <div class="cell" style="cursor:pointer; vertical-align:bottom;"><div class="buttonsearch">
+        <button type="submit" style=" margin: 0; padding: 0 ; border : 0; background : transparent; font-family : inherit; font-size : 1em; color:#FFFFFF; text-decoration:none; cursor : pointer;"><a style="color: white;vertical-align:middle; text-align:center;" class="mdi mdi-magnify"></a></button>
+    </div></div>
+        </form></div></li></ul>
 {% endfor %}
 {% endif %}
 {#    پایان جستجــو در متمم#}
@@ -57,6 +63,25 @@
         {% endfor %}
         {% endif %}
 {#    پایان لیست مهارت ها#}
+
+<p style="height: 10px;">   </p>
+
+{#    شروع لیست دیدگاه ها#}
+{% if comment %}
+
+<ul class="widget-container">
+    <li id="recent-comments-9" class="widget widget_recent_comments">
+        <h3 class="widgettitle">آخرین دیدگاه‌ها</h3>
+            {% for x in comment %}
+        <ul id="recentcomments">
+            <li class="recentcomments"><span class="comment-author-link"><a href="#" rel="external" class="url">{{ x.user.get_full_name }}</a></span> :  <a href="#">{{ x.content|truncatechars:25 }}</a></li>
+        </ul>
+            {% endfor %}
+    </li>
+</ul>
+
+{% endif %}
+{#    پایان لیست دیدگاه ها#}
 
 
 

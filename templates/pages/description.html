@@ -2,6 +2,9 @@
 {% extends "first_app/3_center_left.html" %}
 {% load static %}
 
+{% load comment_tags %}
+{% load ratings %}
+
 
 {% block center_right %}
 
@@ -17,6 +20,7 @@
             <span style="color:green; font-size:18px !important; line-height:30px; padding-left:0px !important; font-weight:bold;"> ✔ </span>
             <span style="color:#111; font-size:13px !important; line-height:30px; padding-right:0px !important; font-weight:300;">{{ object.parent }}</span> &nbsp; &nbsp;
             <p><span style="color:green; font-size:18px !important; line-height:30px; padding-left:0px !important; font-weight:bold;"> ✔ </span>نویسنده : {{ object.author.get_full_name }}</p>
+            <div style="margin-right: 20px">{% ratings object %}</div>
         </span>
     </div>
     <div style="width:100%; height:40px;" class="postmeta-primary"> &nbsp;
@@ -38,7 +42,13 @@
     <div class="wp_rp_wrap wp_rp_twocolumns" id="wp_rp_first"></div>
 
      سری مطالب حوزه <a href="#" class="series-1369" title="تصمیم گیری پیشرفته">{{ object.parent }}</a>
+    <div>تعداد بازدیدها : {{ object.hits.count }}</div>
 <br>
+    <hr>
+
+        {% render_comments object request %}
+        {% include_bootstrap %}
+
 </div>
 </div>
 

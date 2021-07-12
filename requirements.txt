@@ -1,6 +1,8 @@
 Django~=3.2.3
 Pillow
-django-crispy-forms
-django-ckeditor
-python-decouple
-psycopg2
+django-crispy-forms         #crispy
+django-ckeditor             #ckeditor
+python-decouple             #secret & decouple
+psycopg2                    #postgresql
+#django-comments-dad        #comment
+django-star-ratings         #star

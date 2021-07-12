@@ -43,6 +43,9 @@
           <div class="form-group col-md-12 mb-0">
             {{ form.status|as_crispy_field }}
           </div>
+          <div class="form-group col-md-12 mb-0">
+            {{ form.preview|as_crispy_field }}
+          </div>
         </div>
         <button class="btn btn-success">ارسال مقاله</button>
         {% if user.is_superuser and request.resolver_match.kwargs.pk %}

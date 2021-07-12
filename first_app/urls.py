@@ -1,6 +1,17 @@
 from django.urls import path
 
-from first_app.views import firstpageview , registerview , aboutview , description , filter_category , loginview , filter_author
+from first_app.views import (
+                             firstpageview ,
+                             registerview ,
+                             aboutview ,
+                             description ,
+                             filter_category ,
+                             loginview ,
+                             filter_author ,
+                             searchlist ,
+                            )
+
+
 
 
 urlpatterns = [
@@ -11,5 +22,6 @@ urlpatterns = [
     path('description/<slug:slug>/', description.as_view(), name='description'),
     path('filter/<int:category_id>/', filter_category.as_view() , name= 'filter'),
     path('author/<int:author_id>/', filter_author.as_view(), name='author'),
+    path('searchlist/', searchlist.as_view(), name='searchlist'),
 
 ]
