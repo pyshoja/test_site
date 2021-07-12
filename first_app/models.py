@@ -11,12 +11,12 @@ from comment.models import Comment
 # Create your models here.
 
 
-class Apiadress (models.Model):
-    api_adress = models.GenericIPAddressField(verbose_name='آدرس آی پی')
-
-    class Meta:
-        verbose_name = 'آی پی آدرس'
-        verbose_name_plural = 'آی پی آدرس ها'
+# class Apiadress (models.Model):
+#     api_adress = models.GenericIPAddressField(verbose_name='آدرس آی پی')
+#
+#     class Meta:
+#         verbose_name = 'آی پی آدرس'
+#         verbose_name_plural = 'آی پی آدرس ها'
 
 
 
@@ -91,7 +91,7 @@ class Post(models.Model):
     status = models.BooleanField(default=True, verbose_name='نمایش برای کاربران عمومی')
     preview = models.BooleanField(default=True , verbose_name='پیش نویس')
     comments = GenericRelation(Comment)
-    hits = models.ManyToManyField(Apiadress, blank=True , related_name='hits', verbose_name='بازدیدها')
+    # hits = models.ManyToManyField(Apiadress, blank=True , related_name='hits', verbose_name='بازدیدها')
 
     class Meta:
         verbose_name = 'پست'

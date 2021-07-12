@@ -2,10 +2,10 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import My , Slider , Category , Post , support , Apiadress
+from .models import My , Slider , Category , Post , support
 
 
-admin.site.register(Apiadress )
+# admin.site.register(Apiadress )
 
 
 class supportadmin (admin.ModelAdmin):
