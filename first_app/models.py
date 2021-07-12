@@ -94,6 +94,7 @@ class Post(models.Model):
     # hits = models.ManyToManyField(Apiadress, blank=True , related_name='hits', verbose_name='بازدیدها')
 
     class Meta:
+        ordering = ['-date', ]
         verbose_name = 'پست'
         verbose_name_plural = 'پست ها'
 
