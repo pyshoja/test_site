@@ -24,7 +24,6 @@
                   <thead>
                     <tr>
                       <th>ردیف</th>
-                      <th>عنوان دسته بندی</th>
                       <th>نویسنده</th>
                       <th>زیر دسته
                         <select name="mysite" id="mysite">
@@ -34,6 +33,7 @@
                             <option value="three">دسته سوم</option>
                         </select>
                       </th>
+                      <th>نام دسته ایجاد شده</th>
                       <th>کاربران عمومی</th>
                       <th>ویرایش دسته بندی</th>
                       <th>حذف دسته بندی</th>
@@ -43,7 +43,6 @@
                     {% for x in object_list %}
                         <tr>
                           <td>{{ x.id }}</td>
-                          <td>{{ x.title }}</td>
                           <td>{{ x.author.get_full_name }}</td>
 
                         {% if x.parent == None %}
@@ -56,6 +55,7 @@
                           </td>
                         {% endif %}
 
+                          <td>{{ x.title }}</td>
                           <td>
                               {% if x.status == True %}
                                 <a>بله</a>
