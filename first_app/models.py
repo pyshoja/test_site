@@ -144,8 +144,8 @@ class support (models.Model):
     author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='support_parented', verbose_name='نویسنده')
     title_suppurt = models.IntegerField(choices=STATES_CHOICES , null=True , verbose_name='موضوع پیگیری')
     name_user = models.CharField(max_length=200 , null=True , verbose_name='نام و نام خانوادگی کاربر')
-    phone_user = models.CharField(max_length=11 , null=True , verbose_name='شماره تماس کاربر ')
-    email_user = models.EmailField(max_length=100 , null=True , verbose_name='ایمیل کاربر ')
+    phone_user = models.CharField(max_length=11 , blank=True ,null=True , verbose_name='شماره تماس کاربر ')
+    email_user = models.EmailField(max_length=100 , blank=True ,null=True , verbose_name='ایمیل کاربر ')
     description_user = RichTextField(blank=True, null=True, verbose_name='توضیحات برای راهنمایی پشتیبانی سایت')
 
     class Meta:
@@ -154,7 +154,7 @@ class support (models.Model):
         verbose_name_plural = 'پشتیبانی سایت'
 
     def __str__(self):
-        return self.title_suppurt
+        return self.name_user
 
     def get_absolute_url (self):
         return reverse('supportlist')

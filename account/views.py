@@ -182,6 +182,15 @@ class supportcreate (LoginRequiredMixin,formvalidMixin, fieldsMixinsupport, Crea
     model = support
     template_name = 'admin_lte/supportcreate.html'
 
+    def form_valid(self, form):
+        phone_user = form.cleaned_data.get('phone_user')
+        email_user = form.cleaned_data.get('email_user')
+
+        if phone_user == None and email_user == None:
+            return self.form_invalid(form)
+        else:
+            return super().form_valid(form)
+
 
 class supportupdate (LoginRequiredMixin, supportauthoraccessMixin, formvalidMixin, fieldsMixinsupport, UpdateView):
     model = support
