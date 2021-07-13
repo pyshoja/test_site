@@ -14,3 +14,5 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 
+
+element.addEventListener('input',function(){this.value=this.value.toLowerCase()});
