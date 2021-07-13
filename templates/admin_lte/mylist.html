@@ -25,8 +25,8 @@
                     <tr>
                       <th>ردیف</th>
                       <th>نام سایت</th>
-                      <th>نویسنده</th>
-                      <th>نام نویسنده</th>
+                      <th>شناسه کاربری</th>
+                      <th>نام و نام خانوادگی</th>
                       <th>شماره تماس</th>
                       <th>ایمیل</th>
                       <th>لوگوی سایت</th>
@@ -39,8 +39,8 @@
                         <tr>
                           <td>{{ x.id }}</td>
                           <td>{{ x.name_site }}</td>
+                          <td>{{ x.author }}</td>
                           <td>{{ x.author.get_full_name }}</td>
-                          <td>{{ x.name_admin }}</td>
                           <td>{{ x.phone_admin }}</td>
                           <td>{{ x.email_admin }}</td>
                           <td><img src="{{ x.logo.url }}" width="100" height="50"></td>
