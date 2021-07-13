@@ -23,9 +23,12 @@
                 <table class="table table-hover">
                   <thead>
                     <tr>
+                    {% if user.is_superuser %}
                       <th>ردیف</th>
-                      <th>عنوان مقاله</th>
+                      <th>شناسه کاربری</th>
                       <th>نویسنده</th>
+                    {% endif %}
+                      <th>نام مقاله</th>
                       <th>دسته بندی</th>
                       <th>تصویر مقاله</th>
                       <th>کاربران عمومی</th>
@@ -37,9 +40,12 @@
                   <tbody>
                     {% for x in object_list %}
                         <tr>
+                        {% if user.is_superuser %}
                           <td>{{ x.id }}</td>
-                          <td>{{ x.title|truncatechars:15 }}</td>
+                          <td>{{ x.author }}</td>
                           <td>{{ x.author.get_full_name }}</td>
+                        {% endif %}
+                          <td>{{ x.title|truncatechars:15 }}</td>
                           <td>{{ x.parent }}</td>
                           <td><img src="{{ x.image.url }}" width="100" height="50"></td>
                           <td>
