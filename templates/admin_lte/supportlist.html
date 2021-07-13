@@ -51,7 +51,8 @@
                               {% if user.is_superuser %}
                               <a href="{% url 'supportdelete' x.pk %}"><span class="badge badge-danger" style="font-size: 13px">حذف</span></a>
                               {% else %}
-                                  <span class="badge badge-danger" style="font-size: 13px">برای حذف با پشتیبانی تماس بگیرید.</span>
+                                    <a href="{% url 'supportcreate' %}"><span class="badge badge-danger" style="font-size: 13px">برای حذف با پشتیبانی تماس بگیرید.</span></a>
+{#                                  <span class="badge badge-danger" style="font-size: 13px">برای حذف با پشتیبانی تماس بگیرید.</span>#}
                               {% endif %}
                           </td>
                         </tr>
