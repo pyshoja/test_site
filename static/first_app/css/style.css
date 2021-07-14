@@ -1,10 +1,12 @@
-/*body {*/
-/*    font-family: 'iransans';*/
-/*    font-size: 10px;*/
-/*    !*font-weight: bold;*!*/
-/*}*/
 
 body {
+    font-family: 'IRANSans'!important;
+    font-size: 12px;
+    font-weight: 300;
+    direction: rtl;
+    text-align: right;
+    display: block;
+    margin: 8px;
     background-attachment: scroll;
     background-clip: border-box;
     background-color: rgba(0,0,0,0);
@@ -14,42 +16,12 @@ body {
     background-repeat: repeat;
     background-size: auto auto;
     color: #000;
-    font-size: 1.1em;
-    font-family: 'iransans';
-    font-weight: 300;
-    direction: rtl;
 }
 
-body {
-    text-align: right;
-}
-
-body {
-    display: block;
-    margin: 8px;
-}
-
-
-body {
-    text-align: right;
-    background-attachment: scroll;
-    background-clip: border-box;
-    background-color: rgba(0, 0, 0, 0);
-    background-image: url(//motamem.org/wp-content/themes/UpStream/images/bg-ux.jpg);
-    background-origin: padding-box;
-    background-position: 0 0;
-    background-repeat: repeat;
-    background-size: auto auto;
-    color: #000;
-    font-family: 'iransans';
-    font-weight: 300;
-    direction: rtl;
-    font-size: 12px;
-}
 
 
 ul {
-    font-family: 'iransans';
+    font-family: 'IRANSans';
     font-size: 11px;
     text-align: right;
 }

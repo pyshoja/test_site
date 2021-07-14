@@ -23,8 +23,8 @@
     <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
     <style>
         @font-face {
-            font-family: 'iransans';
-            src: local('iransans');
+            font-family: 'IRANSans';
+            src: local('IRANSans');
             url('{% static "first_app/fonts/eot/IRANSansWeb.eot" %}') fotmat('eot')
             url('{% static "first_app/fonts/ttf/IRANSansWeb.ttf" %}') fotmat('ttf')
             url('{% static "first_app/fonts/woff/IRANSansWeb.woff" %}') fotmat('woff')
@@ -34,7 +34,7 @@
 <!--[if lt IE 8]><link rel="stylesheet" href="https://motamem.org/wp-content/themes/UpStream/lib/css/ie.css" type="text/css" media="screen, projection"/><![endif]-->
 <link rel="stylesheet" type="text/css" href="{% static 'first_app/css/5r0i9.css'%}" media="screen"><style>.wpulike .counter a.image{background-image:url(https://motamem.org/wp-content/uploads/2015/05/icon-like-comment.png) !important;}
 .wpulike .counter a{background-color:#076b05 !important;border-color:#c8c8c8 !important;color:#ffffff !important;}</style><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-<link rel="preload prefetch" href="https://motamem.org/wp-content/themes/UpStream/lib/fonts/woff2/IRANSansWeb.woff2" type="font/woff2" as="font" crossorigin="">
+<link rel="preload prefetch" href="{% static "first_app/fonts/woff2/IRANSansWeb.woff2" %}" type="font/woff2" as="font" crossorigin="">
 <title>متمم - محل توسعه مهارتهای من</title>
 <meta name="description" content="متمم محل توسعه مهارتهای من است. این سایت برای آموزش مهارتی و مدیریتی و دوره MBA‌ آنلاین و آموزش آنلاین مدیریت در حوزه های مذاکره و برند و استراتژی و سایر زمینه های مرتبط طراحی شده است.">
 <link rel="canonical" href="https://motamem.org/">
@@ -172,7 +172,7 @@ ul.related_post li .wp_rp_category a{display:inline !important;}</style>
 {#    شروع header دوره آموزشی برندسازی شخصی (کلیک کنید)#}
 {% if my %}
 {% for my in my %}
-    <div style="background-color: #fdc837;"> <div class="caption" style="color: #000000; font-weight: 500; line-height:65px; font-size: 1.4em; text-align: center;"> <a href="{% url 'firstpage' %}" style="color:#9c0707; text-decoration: none; target=" _self"=""> <span style="color:#000000"> دوره های آموزشی {{ my.name_site }} </span> (کلیک کنید) </a></div></div>
+    <div style="background-color: #fdc837;"> <div class="caption" style="color: #000000; font-weight: 500; line-height:65px; font-size: 1.1em; text-align: center;"> <a href="{% url 'firstpage' %}" style="color:#9c0707; text-decoration: none; target=" _self"=""> <span style="color:#000000"> دوره های آموزشی {{ my.name_site }} </span> (کلیک کنید) </a></div></div>
 {% endfor %}
 {% endif %}
 {#    پایان header دوره آموزشی برندسازی شخصی (کلیک کنید)#}
@@ -194,7 +194,7 @@ ul.related_post li .wp_rp_category a{display:inline !important;}</style>
 {% if footer %}
 {% for footer in footer %}
         <div id="footer-widgets" class="clearfix"> <div class="footer-widget-box"></div></div>
-    <div id="footer"> <div id="copyrights"> © {{ footer.time_start|date }} <a href="http://motamem.org/profile/8099" style="text-decoration: none">تمام حقوق این سایت به گروه سایت من و به سرپرستی {{ footer.name_admin }} تعلق دارد.</a> <br>{{ footer.copy_site }}</div></div>
+    <div id="footer" style="font-size: 12px"> <div id="copyrights"> © {{ footer.time_start|date }} <a href="http://motamem.org/profile/8099" style="text-decoration: none">تمام حقوق این سایت به گروه سایت من و به سرپرستی {{ footer.name_admin }} تعلق دارد.</a> <br>{{ footer.copy_site }}</div></div>
 {% endfor %}
 {% endif %}
 {#    پایان فوتر سایت#}
