@@ -57,9 +57,11 @@
                           </td>
                           <td>
                         {% if x.preview == True %}
-                          <a href="{% url 'description' x.pk %}"><span class="badge badge-danger" style="font-size: 13px">پیش نویس</span></a>
+                          <span class="badge badge-danger" style="font-size: 13px">پیش نویس</span>
+                          <a href="{% url 'description' x.pk %}"><span class="badge badge-primary" style="font-size: 13px">نمایش</span></a>
                         {% else %}
-                          <a href="{% url 'description' x.pk %}"><span class="badge badge-success" style="font-size: 13px">منتشر شده</span></a>
+                          <span class="badge badge-success" style="font-size: 13px">منتشر شده</span>
+                          <a href="{% url 'description' x.pk %}"><span class="badge badge-primary" style="font-size: 13px">نمایش</span></a>
                         {% endif %}
                           </td>
                           <td>
