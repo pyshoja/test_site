@@ -1,3 +1,4 @@
+## library django side ##
 Django~=3.2.3
 Pillow
 django-crispy-forms         #crispy
@@ -6,3 +7,9 @@ python-decouple             #secret & decouple
 psycopg2                    #postgresql
 #django-comments-dad        #comment
 django-star-ratings         #star
+
+
+
+## library Server side ##
+#psycopg2-binary
+#gunicorn

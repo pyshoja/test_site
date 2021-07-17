@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'comment',
     'star_ratings',
+    'test_site',
 
 ]
 
