@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'test_site',
     'first_app.apps.FirstAppConfig',
     'crispy_forms',
     'ckeditor',
@@ -48,7 +49,6 @@ INSTALLED_APPS = [
     'account.apps.AccountConfig',
     'comment',
     'star_ratings',
-    'test_site',
 
 ]
 
