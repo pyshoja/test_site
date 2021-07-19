@@ -108,7 +108,7 @@ class Post(models.Model):
     link = models.URLField(max_length=500, null=True, blank=True, verbose_name='لینک یوتیوب یا آپارات')
 
     class Meta:
-        ordering = ['-id', ]
+        ordering = ['-date', ]
         verbose_name = 'پست'
         verbose_name_plural = 'پست ها'
 
