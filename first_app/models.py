@@ -82,8 +82,6 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-
-    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='parented', verbose_name='نویسنده')
     a = 1
     b = 2
     c = 3
@@ -92,7 +90,8 @@ class Post(models.Model):
         (b, 'پادکست'),
         (c, 'ویدئو'),
     ]
-    title_post = models.IntegerField(choices=STATES_CHOICES , null=True, blank=True, verbose_name='عنوان پست')
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='parented', verbose_name='نویسنده')
+    title_post = models.IntegerField(choices=STATES_CHOICES , null=True, verbose_name='عنوان پست')
     parent = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE, verbose_name='زیر دسته' , related_name='parented')
     title = models.CharField(max_length=100, null=True, blank=True, verbose_name='عنوان پست')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='آدرس')
