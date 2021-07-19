@@ -91,7 +91,6 @@ class Post(models.Model):
         (c, 'ویدئو'),
     ]
     author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='parented', verbose_name='نویسنده')
-    title_post = models.IntegerField(choices=STATES_CHOICES , null=True, verbose_name='عنوان پست')
     parent = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE, verbose_name='زیر دسته' , related_name='parented')
     title = models.CharField(max_length=100, null=True, blank=True, verbose_name='عنوان پست')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='آدرس')
@@ -106,6 +105,7 @@ class Post(models.Model):
     audio = models.FileField(upload_to='post_audio', null=True, blank=True, verbose_name='فایل صوتی')
     video = models.FileField(upload_to='post_video', null=True, blank=True, verbose_name='فایل ویدئو')
     link = models.URLField(max_length=500, null=True, blank=True, verbose_name='لینک یوتیوب یا آپارات')
+    title_post = models.IntegerField(choices=STATES_CHOICES , null=True, verbose_name='عنوان پست')
 
     class Meta:
         ordering = ['-id', ]
