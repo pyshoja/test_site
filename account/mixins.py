@@ -4,18 +4,18 @@ from first_app.models import Post , Category , My , Slider , support
 from comment.models.comments import Comment
 
 # محدود سازی فرم ایجاد مقاله
-class fieldsMixinpost():
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_superuser:
-            self.fields = ['author','preview','parent','title','slug','introduction','description','image','status']
-
-        elif request.user.is_author:
-            self.fields = ['parent','preview', 'title', 'slug', 'introduction', 'description', 'image', 'status']
-
-        else:
-            raise Http404('. هشدار : شما دسترسی به نویسندگی در سایت من را ندارید')
-
-        return super().dispatch(request, *args, **kwargs)
+# class fieldsMixinpost():
+#     def dispatch(self, request, *args, **kwargs):
+#         if request.user.is_superuser:
+#             self.fields = ['author','preview','parent','title','slug','introduction','description','image','status','title_post','audio','video','link']
+#
+#         elif request.user.is_author:
+#             self.fields = ['parent','preview', 'title', 'slug', 'introduction', 'description', 'image', 'status','title_post','audio','video','link']
+#
+#         else:
+#             raise Http404('. هشدار : شما دسترسی به نویسندگی در سایت من را ندارید')
+#
+#         return super().dispatch(request, *args, **kwargs)
 
 # محدود سازی فرم ایجاد دسته بندی
 class fieldsMixincategory():
@@ -126,18 +126,18 @@ class sliderauthoraccessMixin():
 
 
 # محدود سازی فرم ایجاد پشتیبانی سایت
-class fieldsMixinsupport():
-    def dispatch(self, request, *args, **kwargs):
-        if request.user.is_superuser:
-            self.fields = ['author','title_suppurt','name_user','phone_user','email_user','description_user']
-
-        elif request.user:
-            self.fields = ['title_suppurt', 'name_user', 'phone_user', 'email_user' , 'description_user']
-
-        else:
-            raise Http404('. هشدار : شما دسترسی به ایجاد پشتیبانی در سایت من را ندارید')
-
-        return super().dispatch(request, *args, **kwargs)
+# class fieldsMixinsupport():
+#     def dispatch(self, request, *args, **kwargs):
+#         if request.user.is_superuser:
+#             self.fields = ['author','title_suppurt','name_user','phone_user','email_user','description_user']
+#
+#         elif request.user:
+#             self.fields = ['title_suppurt', 'name_user', 'phone_user', 'email_user' , 'description_user']
+#
+#         else:
+#             raise Http404('. هشدار : شما دسترسی به ایجاد پشتیبانی در سایت من را ندارید')
+#
+#         return super().dispatch(request, *args, **kwargs)
 
 
 

@@ -82,18 +82,30 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='parented', verbose_name='نویسنده')
-    parent = models.ForeignKey(Category, on_delete=models.CASCADE, verbose_name='زیر دسته' , related_name='parented')
-    title = models.CharField(max_length=100, verbose_name='عنوان پست')
+    a = 1
+    b = 2
+    c = 3
+    STATES_CHOICES = [
+        (a, 'مقاله'),
+        (b, 'پادکست'),
+        (c, 'ویدئو'),
+    ]
+    title_post = models.IntegerField(choices=STATES_CHOICES , null=True, blank=True, verbose_name='عنوان پست')
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='parented', verbose_name='نویسنده')
+    parent = models.ForeignKey(Category, null=True, blank=True, on_delete=models.CASCADE, verbose_name='زیر دسته' , related_name='parented')
+    title = models.CharField(max_length=100, null=True, blank=True, verbose_name='عنوان پست')
     slug = models.SlugField(unique=True, null=True, blank=True, verbose_name='آدرس')
     date = models.DateField(default=timezone.now, verbose_name='زمان پست')
-    introduction = models.CharField(max_length=300, null=True, verbose_name='معرفی کوتاه')
+    introduction = models.CharField(max_length=300, null=True, blank=True, verbose_name='معرفی کوتاه')
     description = RichTextField(blank=True, null=True, verbose_name='توضیحات')
-    image = models.ImageField(upload_to='post_images', verbose_name='عکس')
+    image = models.ImageField(upload_to='post_images', null=True, blank=True, verbose_name='عکس')
     status = models.BooleanField(default=True, verbose_name='نمایش برای کاربران عمومی')
     preview = models.BooleanField(default=True , verbose_name='پیش نویس')
     comments = GenericRelation(Comment)
     # hits = models.ManyToManyField(Apiadress, blank=True , related_name='hits', verbose_name='بازدیدها')
+    audio = models.FileField(upload_to='post_audio', null=True, blank=True, verbose_name='فایل صوتی')
+    video = models.FileField(upload_to='post_video', null=True, blank=True, verbose_name='فایل ویدئو')
+    link = models.URLField(max_length=500, null=True, blank=True, verbose_name='لینک یوتیوب یا آپارات')
 
     class Meta:
         ordering = ['-id', ]

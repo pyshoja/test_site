@@ -15,7 +15,11 @@
               </div>
                 <p style="height: 10px"></p>
                 <form method="post">{% csrf_token %}
+                    {% if author.get_full_name != None %}
                     <p class="py-2">آیا از حذف مقاله «{{ object }}» از کاربر «{{ object.author.get_full_name }}» مطمئن هستید ؟  </p>
+                    {% else %}
+                    <p class="py-2">آیا از حذف این مقاله « خالی » مطمئن هستید ؟  </p>
+                    {% endif %}
                     <span><input type="submit" value="حذف" class="btn btn-danger"></span>
                     <span><a href="{% url 'postlist' %}" class="btn btn-danger">منصرف شدم</a></span>
                 </form>

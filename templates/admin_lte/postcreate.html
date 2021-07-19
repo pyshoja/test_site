@@ -2,56 +2,88 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-    ایجاد مقاله
+    {% if user.is_superuser or user.is_author %}
+    ایجاد پست
+    {% else %}
+    <p style="color: red">خطا : صفحه ای یافت نشد.</p>
+    {% endif %}
 {% endblock %}
 
 
 {% block main %}
+{% if user.is_superuser or user.is_author %}
     <div class="col-md-12">
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title-left">افزودن مقاله</h3>
+                <h3 class="card-title-left">افزودن پست</h3>
               </div>
                 <p style="height: 10px"></p>
-    <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        <div class="form-row">
-    {% if user.is_superuser %}
-          <div class="form-group col-md-2 mb-0">
-            {{ form.author|as_crispy_field }}
-          </div>
-    {% endif %}
-          <div class="form-group col-md-2 mb-0">
-            {{ form.parent|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-8 mb-0">
-            {{ form.slug|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-4 mb-0">
-            {{ form.title|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-8 mb-0">
-            {{ form.introduction|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-12 mb-0">
-              {{ form.media }}
-            {{ form.description|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-12 mb-0">
-            {{ form.image|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-12 mb-0">
-            {{ form.status|as_crispy_field }}
-          </div>
-          <div class="form-group col-md-12 mb-0">
-            {{ form.preview|as_crispy_field }}
-          </div>
-        </div>
-        <button class="btn btn-success">ارسال مقاله</button>
-        {% if user.is_superuser and request.resolver_match.kwargs.pk %}
-        <a href="{% url 'postdelete' request.resolver_match.kwargs.pk %}" class="btn btn-danger">حذف</a>
-        {% endif %}
-    </form>
-         <p style="height: 10px"></p>
-            </div></div>
+                <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                        <div class="form-row">
+                          <div class="form-group col-md-2 mb-0">
+                              {{ form.title_post|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-10 mb-0">
+
+                          </div>
+
+                    {% if user.is_superuser %}
+                          <div class="form-group col-md-2 mb-0">
+                            {{ form.author|as_crispy_field }}
+                          </div>
+                    {% endif %}
+                          <div class="form-group col-md-2 mb-0">
+                            {{ form.parent|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-8 mb-0">
+                            {{ form.slug|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-4 mb-0">
+                            {{ form.title|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-8 mb-0">
+                            {{ form.introduction|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-12 mb-0">
+                              {{ form.media }}
+                            {{ form.description|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-2 mb-0">
+                            {{ form.image|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-10 mb-0">
+
+                          </div>
+                          <div class="form-group col-md-2 mb-0">
+                            {{ form.audio|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-10 mb-0">
+
+                          </div>
+                          <div class="form-group col-md-2 mb-0">
+                            {{ form.video|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-4 mb-0">
+                            {{ form.link|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-12 mb-0">
+                            {{ form.status|as_crispy_field }}
+                          </div>
+                          <div class="form-group col-md-12 mb-0">
+                            {{ form.preview|as_crispy_field }}
+                          </div>
+
+                        </div>
+
+                        <button class="btn btn-success">ارسال مقاله</button>
+                        {% if user.is_superuser and request.resolver_match.kwargs.pk %}
+                        <a href="{% url 'postdelete' request.resolver_match.kwargs.pk %}" class="btn btn-danger">حذف</a>
+                        {% endif %}
+                </form>
+                <p style="height: 10px"></p>
+    </div>
+    </div>
+
+{% endif %}
 {% endblock %}

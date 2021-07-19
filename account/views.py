@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from account.models import User
-from account.forms import profileform
+from account.forms import profileform , postform , supportcreateform
 from django.urls import reverse_lazy
 from django.views.generic import (
                                   TemplateView ,
@@ -11,7 +11,7 @@ from django.views.generic import (
                                   )
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .mixins import (
-                     fieldsMixinpost ,
+                     # fieldsMixinpost ,
                      formvalidMixin ,
                      authoraccessMixin ,
                      superuseraccessMixin ,
@@ -21,7 +21,7 @@ from .mixins import (
                      myauthoraccessMixin ,
                      fieldsMixinslider ,
                      sliderauthoraccessMixin ,
-                     fieldsMixinsupport ,
+                     # fieldsMixinsupport ,
                      supportauthoraccessMixin ,
                      commentauthoraccessMixin,
                      fieldsMixincomment,
@@ -48,13 +48,63 @@ class postlist (LoginRequiredMixin, ListView):
             return Post.objects.filter(author=self.request.user)
 
 
-class postcreate (LoginRequiredMixin,formvalidMixin, fieldsMixinpost, CreateView):
+class postcreate (LoginRequiredMixin,formvalidMixin, CreateView):
     model = Post
+    form_class = postform
     template_name = 'admin_lte/postcreate.html'
 
+    # def form_valid(self, form):
+    #     author = form.cleaned_data.get('author')
+    #     preview = form.cleaned_data.get('preview')
+    #     parent = form.cleaned_data.get('parent')
+    #     title = form.cleaned_data.get('title')
+    #     slug = form.cleaned_data.get('slug')
+    #     introduction = form.cleaned_data.get('introduction')
+    #     description = form.cleaned_data.get('description')
+    #     image = form.cleaned_data.get('image')
+    #     status = form.cleaned_data.get('status')
+    #     title_post = form.cleaned_data.get('title_post')
+    #     audio = form.cleaned_data.get('audio')
+    #     video = form.cleaned_data.get('video')
+    #     link = form.cleaned_data.get('link')
+    #
+    #     if title_post == 1:   #مقاله
+    #         if author == None or parent == None or \
+    #            title == None or introduction == None or \
+    #            description == None or image == None:
+    #
+    #             return self.form_invalid(form)
+    #         else:
+    #             return super().form_valid(form)
+    #
+    #     elif title_post == 2:   #پادکست
+    #         if author == None or parent == None or \
+    #            title == None or introduction == None or \
+    #            description == None or image == None or \
+    #            audio == None:
+    #
+    #             return self.form_invalid(form)
+    #         else:
+    #             return super().form_valid(form)
+    #
+    #     elif title_post == 3:   #ویدئو
+    #         if author == None or parent == None or \
+    #            title == None or introduction == None or \
+    #            description == None or image == None or \
+    #            video == None and link == None:
+    #
+    #             return self.form_invalid(form)
+    #         else:
+    #             return super().form_valid(form)
+    #
+    #     else:
+    #         return self.form_invalid(form)
 
-class postupdate (LoginRequiredMixin, authoraccessMixin, formvalidMixin, fieldsMixinpost, UpdateView):
+
+
+class postupdate (LoginRequiredMixin, authoraccessMixin, formvalidMixin, UpdateView):
     model = Post
+    form_class = postform
     template_name = 'admin_lte/postcreate.html'
 
 
@@ -178,22 +228,24 @@ class supportlist (LoginRequiredMixin, ListView):
             return support.objects.filter(author=self.request.user)
 
 
-class supportcreate (LoginRequiredMixin,formvalidMixin, fieldsMixinsupport, CreateView):
+class supportcreate (LoginRequiredMixin,formvalidMixin, CreateView):
     model = support
+    form_class = supportcreateform
     template_name = 'admin_lte/supportcreate.html'
 
-    def form_valid(self, form):
-        phone_user = form.cleaned_data.get('phone_user')
-        email_user = form.cleaned_data.get('email_user')
+    # def form_valid(self, form):
+    #     phone_user = form.cleaned_data.get('phone_user')
+    #     email_user = form.cleaned_data.get('email_user')
+    #
+    #     if phone_user == None and email_user == None:
+    #         return self.form_invalid(form)
+    #     else:
+    #         return super().form_valid(form)
 
-        if phone_user == None and email_user == None:
-            return self.form_invalid(form)
-        else:
-            return super().form_valid(form)
 
-
-class supportupdate (LoginRequiredMixin, supportauthoraccessMixin, formvalidMixin, fieldsMixinsupport, UpdateView):
+class supportupdate (LoginRequiredMixin, supportauthoraccessMixin, formvalidMixin, UpdateView):
     model = support
+    form_class = supportcreateform
     template_name = 'admin_lte/supportcreate.html'
 
 
