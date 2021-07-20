@@ -153,7 +153,7 @@ class support (models.Model):
         (e, 'متفرقه'),
         (f, 'درخواست حذف'),
     ]
-    author = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='support_parented', verbose_name='نویسنده')
+    author = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL, related_name='support_parented', verbose_name='نویسنده')
     title_suppurt = models.IntegerField(choices=STATES_CHOICES , null=True , verbose_name='موضوع پیگیری')
     name_user = models.CharField(max_length=200 , null=True , verbose_name='نام و نام خانوادگی کاربر')
     phone_user = models.CharField(max_length=11 , blank=True ,null=True , verbose_name='شماره تماس کاربر ')
