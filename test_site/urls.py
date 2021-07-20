@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include('first_app.urls')),
     path("accounts/", include("django.contrib.auth.urls"),name='accounts'),
     path('account/', include('account.urls')),
-    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('ckeditor_uploader/', include('ckeditor_uploader.urls')),
     path('comment/', include('comment.urls')),
     re_path(r'^ratings/', include('star_ratings.urls', namespace='ratings')),
 

@@ -173,7 +173,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 AUTH_USER_MODEL = 'account.User'
 
 
-# ckeditor configs
+# ckeditor_uploader configs
 CKEDITOR_UPLOAD_PATH = "uploads_ckeditor/"
 CKEDITOR_CONFIGS = {
     'default': {
