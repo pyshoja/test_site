@@ -88,9 +88,9 @@ class postform (forms.ModelForm):
             super().clean()
 
         if title_post == 2:   #پادکست
-            if parent == None or \
-               title == None or introduction == None or \
-               description == None or image == None:
+            if parent == None or title == None or \
+               introduction == None or description == None or \
+               image == None or audio == None:
                 self.add_error('parent', ('فیلد اجباری'))
                 self.add_error('title', ('فیلد اجباری'))
                 self.add_error('introduction', ('فیلد اجباری'))
