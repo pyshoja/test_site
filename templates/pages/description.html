@@ -19,8 +19,11 @@
         <span class="meta_categories">
             <span style="color:green; font-size:18px !important; line-height:30px; padding-left:0px !important; font-weight:bold;"> ✔ </span>
             <span style="color:#111; font-size:13px !important; line-height:30px; padding-right:0px !important; font-weight:300;">{{ object.parent }}</span> &nbsp; &nbsp;
-            <p><span style="color:green; font-size:18px !important; line-height:30px; padding-left:0px !important; font-weight:bold;"> ✔ </span>نویسنده : {{ object.author.get_full_name }}</p>
-            <div style="margin-right: 20px">{% ratings object %}</div>
+            <span style="color:green; font-size:18px !important; line-height:30px; padding-left:0px !important; font-weight:bold;"> ✔ </span>
+            <span style="color:#111; font-size:13px !important; line-height:30px; padding-right:0px !important; font-weight:300;">{{ object.get_title_post_display }}</span> &nbsp; &nbsp;
+            <span style="color:green; font-size:18px !important; line-height:30px; padding-left:0px !important; font-weight:bold;"> ✔ </span>
+            <span style="color:#111; font-size:13px !important; line-height:30px; padding-right:0px !important; font-weight:300;">نویسنده : {{ object.author.get_full_name }}</span> &nbsp; &nbsp;
+            <p>  </p><div style="margin-right: 20px">{% ratings object %}</div>
         </span>
     </div>
     <div style="width:100%; height:40px;" class="postmeta-primary"> &nbsp;
@@ -40,6 +43,34 @@
     <p style="text-align: justify;">{{ object.description|safe }}</p>
 
     <div class="wp_rp_wrap wp_rp_twocolumns" id="wp_rp_first"></div>
+
+    {% if object.title_post == 2 %}
+    <p>   </p>
+    <hr>
+    <p style="color: green"> فایل صوتی {{ object.title }}</p>
+    <p style="text-align: justify;">
+        <audio controls="controls" data-mce-fragment="1">
+            <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start">﻿</span>
+            <source src="{{ object.audio.url }}" type="audio/mpeg">
+            <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_end">﻿</span>
+        </audio>
+    </p>
+    {% elif object.title_post == 3 %}
+    <p>   </p>
+    <hr>
+    <p style="color: green"> فایل تصویری {{ object.title }}</p>
+    <p style="text-align: justify;">
+        {% if object.video %}
+        <video width="400" controls>
+          <source src="{{ object.video.url }}" type="video/mp4">
+          <source src="{{ object.video.url }}" type="video/ogg">
+          Your browser does not support HTML video.
+        </video>
+        {% elif object.link %}
+        <iframe width="400" height="250" src="{{ object.link }}"></iframe>
+        {% endif %}
+    </p>
+    {% endif %}
 
      سری مطالب حوزه <a href="#" class="series-1369" title="تصمیم گیری پیشرفته">{{ object.parent }}</a>
 {#    <div>تعداد بازدیدها : {{ object.hits.count }}</div>#}
