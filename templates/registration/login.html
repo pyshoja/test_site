@@ -6,7 +6,7 @@
 {% block center_right %}
 
     {% if user.is_authenticated %}
-     <div id="content" style="max-width: 100%">
+     <div id="content" style="max-width: 100% ; margin-right: 7px">
         <div class="box-index" style="line-height: 28px;">
 
             <h6 style="text-align: center ; color: red">« {{ user.get_full_name }} »</h6>
@@ -17,7 +17,7 @@
     {% else %}
 
 
-     <div id="content" style="max-width: 100%">
+     <div id="content" style="max-width: 100% ; margin-right: 7px">
         <div class="box-index" style="line-height: 28px;">
 <form method="post">
     {% csrf_token %}
@@ -31,13 +31,13 @@
                     <p class="text-whitesmoke">ورود به حساب کاربری</p>
                 <div class="container-content">
                     <form class="margin-t">
-                        <div class="form-group" style="padding-left: 25px">
-                            <label>شناسه کاربری</label>
-                            <input oninput="this.value=this.value.toLowerCase()" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" style="width: 400px" placeholder="شناسه کاربری خود را وارد کنید">
+                        <div class="form-group">
+                            <label style="width: 15% ; margin-right: 0%">شناسه کاربری</label>
+                            <input oninput="this.value=this.value.toLowerCase()" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" style="width: 80% ; margin-left: 1%" placeholder="شناسه کاربری خود را وارد کنید">
                         </div>
-                        <div class="form-group" style="padding-left: 0px">
-                            <label>رمز عبور</label>
-                            <input type="password" name="password" autocomplete="new-password" required="" id="id_password" aria-autocomplete="list" style="width: 400px" placeholder="رمز عبور خود را وارد کنید">
+                        <div class="form-group">
+                            <label style="width: 15% ; margin-right: 0%">رمز عبور</label>
+                            <input type="password" name="password" autocomplete="new-password" required="" id="id_password" aria-autocomplete="list" style="width: 80% ; margin-left: 1%" placeholder="رمز عبور خود را وارد کنید">
                         </div>
                         <p>   </p>
                         <button type="submit" class="form-button button-l margin-b">وارد میشوم</button>
