@@ -4,7 +4,7 @@
 {% load crispy_forms_tags %}
 
 {% block center_right %}
-<div id="content" style="max-width: 100%">
+<div id="content" style="max-width: 100% ; margin-right: 7px">
 <div class="box-index" style="line-height: 28px;">
 
 <form method="post">
@@ -28,34 +28,34 @@
 
                 <div class="container-content">
                     <form class="margin-t">
-                        <div class="form-group" style="padding-left: 60px">
-                            <label>شناسه کاربری</label>
-                            <input oninput="this.value=this.value.toLowerCase()" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" style="width: 400px" placeholder="شناسه کاربری خود را وارد کنید">
+                        <div class="form-group">
+                            <label style="width: 25% ; margin-right: -10%">شناسه کاربری</label>
+                            <input oninput="this.value=this.value.toLowerCase()" type="text" name="username" maxlength="150" autofocus="" required="" id="id_username" style="width: 80% ; margin-left: 1%" placeholder="شناسه کاربری خود را وارد کنید">
                             {{ form.username.errors }}
                         </div>
-                        <div class="form-group" style="padding-left: 10px">
-                            <label>نام</label>
-                            <input type="text" name="first_name" maxlength="150" autofocus="" required="" id="id_first_name" style="width: 400px" placeholder="نام خود را وارد کنید">
+                        <div class="form-group">
+                            <label style="width: 25% ; margin-right: -10%">نام</label>
+                            <input type="text" name="first_name" maxlength="150" autofocus="" required="" id="id_first_name" style="width: 80% ; margin-left: 1%" placeholder="نام خود را وارد کنید">
                             {{ form.first_name.errors }}
                         </div>
-                        <div class="form-group" style="padding-left: 60px">
-                            <label>نام خانوادگی</label>
-                            <input type="text" name="last_name" maxlength="150" autofocus="" required="" id="id_last_name" style="width: 400px" placeholder="نام خانوادگی خود را وارد کنید">
+                        <div class="form-group">
+                            <label style="width: 25% ; margin-right: -10%">نام خانوادگی</label>
+                            <input type="text" name="last_name" maxlength="150" autofocus="" required="" id="id_last_name" style="width: 80% ; margin-left: 1%" placeholder="نام خانوادگی خود را وارد کنید">
                             {{ form.last_name.errors }}
                         </div>
-                        <div class="form-group" style="padding-left: 25px">
-                            <label>ایمیل</label>
-                            <input type="email" name="email" required="" id="id_email" style="width: 400px" placeholder="ایمیل خود را وارد کنید">
+                        <div class="form-group">
+                            <label style="width: 25% ; margin-right: -10%">ایمیل</label>
+                            <input type="email" name="email" required="" id="id_email" style="width: 80% ; margin-left: 1%" placeholder="ایمیل خود را وارد کنید">
                             {{ form.email.errors }}
                         </div>
-                        <div class="form-group" style="padding-left: 35px">
-                            <label>رمز عبور</label>
-                            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" aria-autocomplete="list" style="width: 400px" placeholder="رمز عبور حداقل از 8 حرف تشکیل شود">
+                        <div class="form-group">
+                            <label style="width: 25% ; margin-right: -10%">رمز عبور</label>
+                            <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" aria-autocomplete="list" style="width: 80% ; margin-left: 1%" placeholder="رمز عبور حداقل از 8 حرف تشکیل شود">
                             {{ form.password1.errors }}
                         </div>
-                        <div class="form-group" style="padding-left: 60px">
-                            <label>تکرار رمز عبور</label>
-                            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" style="width: 400px" placeholder="رمز عبور خود را تکرار کنید">
+                        <div class="form-group">
+                            <label style="width: 25% ; margin-right: -10%">تکرار رمز عبور</label>
+                            <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2" style="width: 80% ; margin-left: 1%" placeholder="رمز عبور خود را تکرار کنید">
                             {{ form.password2.errors }}
                         </div>
                         <p>   </p>
