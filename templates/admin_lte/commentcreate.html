@@ -9,13 +9,13 @@
 {% block main %}
     <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-primary" style="margin-right: 10px">
               <div class="card-header">
                 <h3 class="card-title-left">ویرایش دیدگاه</h3>
               </div>
                 <p style="height: 10px"></p>
     <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        <div class="form-row">
+        <div class="form-row" style="margin-right: 10px ; margin-left: 10px">
         {% if user.is_superuser %}
           <div class="form-group col-md-2 mb-0">
             {{ form.user|as_crispy_field }}
@@ -25,7 +25,7 @@
             {{ form.content|as_crispy_field }}
           </div>
         </div>
-        <button class="btn btn-success">ارسال دیدگاه </button>
+        <button class="btn btn-success" style="margin-right: 10px">ارسال دیدگاه </button>
         {% if user.is_superuser and request.resolver_match.kwargs.pk %}
         <a href="{% url 'supportdelete' request.resolver_match.kwargs.pk %}" class="btn btn-danger">حذف</a>
         {% endif %}

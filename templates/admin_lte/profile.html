@@ -9,13 +9,13 @@
 {% block main %}
     <div class="col-md-12">
             <!-- general form elements -->
-            <div class="card card-primary">
+            <div class="card card-primary" style="margin-right: 10px">
               <div class="card-header">
                 <h3 class="card-title-left">پروفایل کاربری</h3>
               </div>
                 <p style="height: 10px"></p>
     <form method="post" enctype="multipart/form-data">{% csrf_token %}
-        <div class="form-row">
+        <div class="form-row" style="margin-right: 10px ; margin-left: 10px">
           <div class="form-group col-md-6 mb-0">
             {{ form.username|as_crispy_field }}
           </div>
@@ -46,7 +46,7 @@
 
 
         </div>
-        <button class="btn btn-success">ویرایش اطلاعات</button>
+        <button class="btn btn-success" style="margin-right: 10px">ویرایش اطلاعات</button>
     </form>
          <p style="height: 10px"></p>
             </div></div>
