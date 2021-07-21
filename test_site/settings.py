@@ -178,6 +178,8 @@ CKEDITOR_UPLOAD_PATH = "uploads_ckeditor/"
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Advanced',
+        'height': 300,
+        'width': 430,
     },
 }
 

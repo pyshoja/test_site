@@ -9,6 +9,7 @@ from first_app.views import (
                              loginview ,
                              filter_author ,
                              searchlist ,
+                             test_js ,
                             )
 
 
@@ -23,5 +24,6 @@ urlpatterns = [
     path('filter/<int:category_id>/', filter_category.as_view() , name= 'filter'),
     path('author/<int:author_id>/', filter_author.as_view(), name='author'),
     path('searchlist/', searchlist.as_view(), name='searchlist'),
+    path('test_js/', test_js.as_view(), name='test_js'),
 
 ]
