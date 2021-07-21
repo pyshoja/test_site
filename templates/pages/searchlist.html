@@ -2,9 +2,11 @@
 {% extends "first_app/3_center_left.html" %}
 {% load static %}
 
+{% load ratings %}
+
 
 {% block center_right %}
-<div id="content" style="max-width: 100%">
+<div id="content" style="max-width: 100% ; margin-right: 7px">
 
     <div style="text-align: center ; width: 98% ; height: 30px ; background-color: #cbccce"><h6 style="text-align: center">نتیجه جستجو شما</h6></div>
 <p>   </p>
@@ -13,16 +15,22 @@
 
 {% if object_list %}
 {% for x in object_list %}
+{% if x.preview != True %}
     <div class="post-wrap clearfix">
-        <div class="post post-box clearfix post-70809 type-post status-publish format-standard has-post-thumbnail hentry category-1289 category-511 category-136 tag-general-general tag-2091 tag-2260" id="post-70809"> <h3 class="entry-title">
+        <div class="post post-box clearfix post-70809 type-post status-publish format-standard has-post-thumbnail hentry category-1289 category-511 category-136 tag-general-general tag-2091 tag-2260" id="post-70809">
 
-        <a href="/description/{{ x.id }}/" title="" rel="bookmark"><b>{{ x.title }}</b></a></h3> <div class="postmeta-primary"> <span class="vcard author post-author"><span class="fn">گروه سایت من</span></span> <span class="post-date updated">می 22, 2021</span></div><div class="entryy clearfix"> <div class="image-container"><a href="/description/{{ x.id }}/"><img src="{{ x.image.url }}" width="300" height="200" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy"></a></div><div class="featured-content-container">{{ x.introduction }}<div class="readmore"> <a href="/description/{{ x.id }}/" title="" rel="bookmark">ادامه مطلب</a></div></div><p style="margin-top:10px;"></p></div>
+            <h3 class="entry-title"><a href="/description/{{ x.id }}/" title="" rel="bookmark"><b>{{ x.title }}</b></a></h3>
+
+            <div style="text-align: left; margin-left: 10px">{% ratings x %}</div>
+
+            <div class="postmeta-primary"> <span class="vcard author post-author"><span class="fn">گروه سایت من</span></span> <span class="post-date updated">می 22, 2021</span></div><div class="entryy clearfix"> <div class="image-container"><a href="/description/{{ x.id }}/"><img src="{{ x.image.url }}" width="300" height="200" class="attachment-medium size-medium wp-post-image" alt="" loading="lazy"></a></div><div class="featured-content-container">{{ x.introduction }}<div class="readmore"> <a href="/description/{{ x.id }}/" title="" rel="bookmark">ادامه مطلب</a></div></div><p style="margin-top:10px;"></p></div>
         <div style="float:left">
             <span style="color:green; float:right; font-size:18px !important; line-height:30px; padding-left:2px !important; font-weight:bold;"> ✔ </span><span style="color:#111; float:right; font-size:11px !important; line-height:30px; padding-left:8px !important; font-weight:300;"><p>{{ x.parent }}</p></span>
             <span style="color:green; float:right; font-size:18px !important; line-height:30px; padding-left:2px !important; font-weight:bold;"> ✔ </span><span style="color:#111; float:right; font-size:11px !important; line-height:30px; padding-left:8px !important; font-weight:300;"><p>{{ x.get_title_post_display }}</p></span>
         </div>
         </div>
     </div>
+{% endif %}
 {% endfor %}
     {% else %}
     <p class="text-danger" style="text-align: center">هنوز هیچ آموزشی برای گزینه انتخابی شما ثبت نشده است.</p>
@@ -46,7 +54,7 @@
 
 {#    شروع صفحه بندی ها #}
 {% if is_paginated %}
-    <div class="navigation clearfix">
+    <div class="navigation clearfix" style="margin-right: 10px">
         <div class="wp-pagenavi">
 
             {% if page_obj.has_previous %}

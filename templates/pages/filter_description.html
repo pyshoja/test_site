@@ -5,11 +5,12 @@
 {% load ratings %}
 
 {% block center_right %}
-<div id="content" style="max-width: 100%">
+<div id="content" style="max-width: 100% ; margin-right: 7px">
 <div class="box-index" style="line-height: 28px;">
 
 {% if object_list %}
 {% for x in object_list %}
+{% if x.preview != True %}
     <div class="post-wrap clearfix">
         <div class="post post-box clearfix post-70809 type-post status-publish format-standard has-post-thumbnail hentry category-1289 category-511 category-136 tag-general-general tag-2091 tag-2260" id="post-70809"> <h3 class="entry-title">
 
@@ -24,6 +25,7 @@
         </div>
         </div>
     </div>
+{% endif %}
 {% endfor %}
     {% else %}
     <p class="text-danger" style="text-align: center">هنوز هیچ آموزشی برای گزینه انتخابی شما ثبت نشده است.</p>
@@ -47,7 +49,7 @@
 
 {#    شروع صفحه بندی ها #}
 {% if is_paginated %}
-    <div class="navigation clearfix">
+    <div class="navigation clearfix" style="margin-right: 10px">
         <div class="wp-pagenavi">
 
             {% if page_obj.has_previous %}
