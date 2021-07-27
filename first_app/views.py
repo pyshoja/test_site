@@ -218,15 +218,4 @@ class PasswordResetCompleteView (PasswordResetCompleteView):
 
 
 class test_js (TemplateView):
-    template_name = 'pages/test_js.html'
-    model = Category
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['my'] = My.objects.all()
-        context['menusite'] = Category.objects.all()
-        context['footer'] = My.objects.all()
-        context['slider'] = Slider.objects.all()
-        context['post'] = Post.objects.all()
-        context['comment'] = Comment.objects.all()
-        return context
+    template_name = 'pages/test_vue.js.html'
